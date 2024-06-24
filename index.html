@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.I.G.EN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="resource/img/escudo.webp">
+        <!-- Script de efecto para desplegar opciones -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            //////////////////// Desplegar opciones cuando nos posicionamos sobre el menú de barras //////////////////////
+            $(document).ready(function () {
+                $(".op-barras").click(function () {
+                    $(".menu-adaptable").slideToggle("slow");
+                });
+            });
+            ////////////////////////////// Ocultar menú cuando hacemos clic en las opciones ////////////////////////////////
+            $(document).ready(function () {
+                $(".op-menu-oculto").click(function () {
+                    $(".menu-adaptable").slideToggle("slow");
+                });
+            });
+        </script>
+        <!-- Script para efecto scroll al seleccionar una opción del menú -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"
+            charset="utf-8"></script>
+</head>
+<body>
+    <nav>
+
+        <div class="nav-izq">
+            <img src="resource/img/logo-horizontal.webp" width="190" height="auto" class="logo">
+        </div>
+
+        <div class="nav-der">
+            <ul>
+                <li class="op-menu"><a id="clic1" href="#home">HOME</a></li>
+                <li class="op-menu"><a href="#calls">ABOUT US</a></li>
+                <li class="op-menu"><a href="#news">NEWS</a></li>
+                <a div class="boton" href="">SIGN IN</a></div>
+                <a div class="boton" href="">SIGN UP</a></div>
+                <select class="op-menu" name="idioma" id="idioma">
+                    <option value="english">EN</option>
+                    <option value="spanish">ES</option>
+                  </select>
+            </ul>
+        </div>
+
+    </nav>
+</body>
+</html>
