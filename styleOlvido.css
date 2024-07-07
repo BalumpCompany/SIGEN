@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.inter-Inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+body{
+    background-color: black;
+    margin: 0;
+}
+
+header{
+    display: flex;
+    height: auto;
+    width: 100%;
+    align-items: center;
+}
+
+#logo{
+    width: 6vw;
+    margin-left: 3vw;
+    margin-top: 1vw;
+}
+
+#login{
+    margin-left: 82vw;
+    text-decoration: underline;
+}
+
+#cuadroContacto{
+    position: absolute;
+    margin-left: 38.5vw;
+    margin-top: 8vw;
+    font-family: Inter;
+    background-color: #242424;
+    width: 23vw;
+    height: 9vw;
+    border-radius: 10px;
+    text-align: center;
+}
+
+p{
+    color: white;
+}
+
+#primeraLinea{
+    margin-top: 3vw;
+}
+
+footer{
+    font-family: Inter;
+    width: 100vw;
+    display: flex;
+    margin-top: 39vw;
+    align-items: center;
+}
+
+a{
+    font-family: Inter;
+    text-decoration: none;
+    color: #f9e8b2;
+    margin-right: 2vw;
+}
+    
+
+footer{
+    font-family: Inter;
+    width: 100vw;
+    display: flex;
+    margin-top: 37vw;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #f9e8b2;
+    margin-right: 2vw;
+    font-size: 0.8vw;
+}
+
+#balump{
+    width: 4vw;
+    margin-left: 2.5vw;
+    margin-right: 75vw;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="assets/Recursos/Isotipo Full@2x.png">
+    <title>Balump Company</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="utf-8">
+    <meta name="author" content="Balump CO">
+    <meta name="description" content="Empresa desarroladora de software">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Script de efecto para desplegar opciones -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //////////////////// Desplegar opciones cuando nos posicionamos sobre el menú de barras //////////////////////
+        $(document).ready(function () {
+            $(".op-barras").click(function () {
+                $(".menu-adaptable").slideToggle("slow");
+            });
+        });
+        ////////////////////////////// Ocultar menú cuando hacemos clic en las opciones ////////////////////////////////
+        $(document).ready(function () {
+            $(".op-menu-oculto").click(function () {
+                $(".menu-adaptable").slideToggle("slow");
+            });
+        });
+    </script>
+    <!-- Script para efecto scroll al seleccionar una opción del menú -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"
+        charset="utf-8"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="div-nav-1">
+            <img src="assets/Recursos/Imagotipo Horizontal Blanco S-W@0.5x.webp" width="200" height="auto" class="logo">
+        </div>
+        <div class="div-nav-2">
+            <ul>
+                <li class="op-menu"><a id="clic1" href="index.html">INICIO</a></li>
+                <li class="op-menu"><a href="index.html">NOSOTROS</a></li>
+                <li class="op-menu"><a href="index.html">MISION</a></li>
+                <li class="op-menu"><a href="index.html">VISION</a></li>
+                <li class="op-menu"><a href="owners.html">EQUIPO DE TRABAJO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="owners">
+        <article class="owners-izq">
+            <h1><span style="color: rgb(0, 0, 0);">Equipo de trabajo</h1>
+        </article>
+
+        <script>
+            /////////////////////////// Parte del efecto scroll /////////////////////////////////////
+            $(function () {
+                $('a[href*=#]').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        && location.hostname == this.hostname) {
+                        var $target = $(this.hash);
+                        $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                        if ($target.length) {
+                            var targetOffset = $target.offset().top;
+                            $('html,body').animate({ scrollTop: targetOffset }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+    
+            //////////////// Reproducir sonido al hacer clic en los botones ///////////////////////
+    
+            // Obtener todos los elementos con la clase "boton"
+            var buttons = document.getElementsByClassName('boton');
+            // Crear un audio y cargar el archivo de sonido mp3
+            var audio = new Audio('sonido/clic.mp3');
+            // Recorrer todas las clases denominadas "boton" y agregarles el evento clic
+            for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function () {
+            // Reproducir el sonido cuando se hace clic en el botón
+            audio.play();
+            });
+            }
+    
+        </script>
+    </section>
+</body>
