@@ -13,14 +13,6 @@ body{
     background-color: black;
     margin: 0;
 }
-
-header{
-    display: flex;
-    height: auto;
-    width: 100%;
-    align-items: center;
-}
-
 #logo{
     width: 6vw;
     margin-left: 47vw;
@@ -30,7 +22,7 @@ header{
 #cuadroLogin{
     position: absolute;
     margin-left: 37.5vw;
-    margin-top: 4vw;
+    margin-top: 8vw;
     font-family: Inter;
     background-color: #242424;
     width: 25vw;
@@ -97,7 +89,7 @@ footer{
     font-family: Inter;
     width: 100vw;
     display: flex;
-    margin-top: 37vw;
+    margin-top: 45vw;
     align-items: center;
 }
 

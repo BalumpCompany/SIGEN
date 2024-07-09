@@ -111,12 +111,12 @@ a {
     background-image: url(recursos/mancuerna.png);
     background-repeat: no-repeat;
     background-position-x: 100%;
-    background-size: 25%;
+    background-size: 40%;
     font-family: Inter;
     background-color: black;
     display: inline;
     width: 100vw;
-    height: 25vw;
+    height: 40vw;
     justify-content: left;
     justify-items: center;
     align-items: center;
@@ -124,19 +124,22 @@ a {
 
 #aboutTitulo {
     font-size: 1.8vw;
-    margin-top: 10vw;
     font-weight: bold;
     margin-left: 2vw;
     color: #f9e8b2;
+    position: relative;
+    top: 30%;
 }
 
 #aboutContenido {
-    font-size: 1vw;
+    font-size: 1.5vw;
     display: flex;
     margin-left: 2vw;
     text-align: left;
-    width: 70%;
+    width: 50%;
     color: white;
+    position:relative;
+    top: 30%;
 }
 
 * {
