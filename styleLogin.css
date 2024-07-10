@@ -64,6 +64,7 @@ label{
     background-color: #49a842;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #contrasena{
