@@ -241,6 +241,7 @@ a {
         opacity: 1
     }
 }
+
 #questions{
     width: 100vw;
     height: 100vh;
@@ -265,7 +266,8 @@ a {
     align-items: center;
     display: flex;
     position: relative;
-    font-family: Inter-Medium;
+    font-family: Inter;
+    font-weight: bold;
     margin: 2rem 0rem;
     color: #f9e8b2;
 }
@@ -278,15 +280,16 @@ a {
 
 .preguntas h1{
     font-size: 1.8rem;
-    font-family: Inter-Medium;
-    color: white;
+    font-family: Inter;
+    font-weight: Medium;
+    color: rgb(255, 255, 255);
 }
 
 .respuestas{
     max-height: 0;
     overflow: hidden;
     transition: max-height 1.4s ease;
-    font-family: Inter-Medium;
+    font-family: Inter;
     color: #f9e8b2;
 }
 
@@ -294,7 +297,7 @@ a {
     padding-top: 1rem;
     line-height: 1.6;
     font-size: 1.4rem;
-    font-family: Inter-Medium;
+    font-family: Inter;
 }
 
 .faq.active .respuestas{
