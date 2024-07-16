@@ -221,3 +221,10 @@ a:hover {
     height: 20vh;
 }
 
+#img-owners{
+    width: 100vw;
+    height: auto;
+    padding-bottom: 30vh;
+}
+
+
