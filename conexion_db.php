@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-$usuario = "admin";
-$contrasena = "admin";
+$usuario = "root";
+$contrasena = "";
 $nombrebd = "heracles_bd";
 $conexion = new mysqli($server, $usuario, $contrasena, $nombrebd);
 if ($conexion->connect_error) {
