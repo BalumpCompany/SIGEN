@@ -13,13 +13,15 @@
         <a href="index.html"><img src="recursos/logo_registro.jpg" alt="logo" id="logo"></a>
         <a href="login.html"><button id="iniciarSesion">Iniciar Sesión</button></a>
     </header>
-    <div id="cuadroRegistro">
-        <label for="mail" id="labelmail">Ingresa tu email:</label><input type="text" id="mail"><br>
-        <label for="user">Ingresa tu Nombre de Usuario:</label><input type="text" id="user"><br>
-        <label for="pass">Ingresa tu Contraseña:</label><input type="text" id="pass"><br>
-        <label for="pass2">Repite tu Contraseña:</label><input type="text" id="pass2"><br>
+    <form action="registro.php" method="get" id="cuadroRegistro">
+        <label for="mail" id="labelmail">Ingresa tu email:</label><input type="text" name="mail"><br>
+        <label for="user">Ingresa tu Nombre de Usuario:</label><input type="text" name="user"><br>
+        <label for="nombre">Ingresa tu Nombre:</label><input type="text" name="nom"><br>
+        <label for="apellido">Ingresa tu Apellido:</label><input type="text" name="ape"><br>
+        <label for="pass">Ingresa tu Contraseña:</label><input type="password" name="pass"><br>
+        <label for="pass2">Repite tu Contraseña:</label><input type="password" name="pass2"><br>
         <button id="registrarse">Registrarse</button>
-    </div>
+    </form>
     <footer>
         <img src="recursos/balump.jpg" alt="balump" id="balump">
         <a href="">Compañía</a>
