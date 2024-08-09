@@ -88,7 +88,7 @@ a {
 }
 
 #unete {
-    background-image: url("recursos/musculito.png");
+    background-image: url("recursos/musculito.jpg");
     background-size: 100%;
     align-items: center;
     text-align: center;
@@ -112,7 +112,7 @@ a {
 }
 
 #aboutus {
-    background-image: url(recursos/mancuerna.png);
+    background-image: url("recursos/mancuerna.jpg");
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-size: 40%;
