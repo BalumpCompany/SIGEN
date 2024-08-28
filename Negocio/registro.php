@@ -1,7 +1,7 @@
 <?php
 include("conexion_db.php");
-if($_GET["pass"]===$_GET["pass2"]){
-$queryRegistro= "INSERT INTO Usuario VALUES('".$_GET["user"]."','".$_GET["nom"]."','".$_GET["ape"]."','".$_GET["mail"]."','".$_GET["pass"]."','Cliente');";
+if($_POST["pass"]===$_POST["pass2"]){
+$queryRegistro= "INSERT INTO Usuario VALUES('".$_POST["user"]."','".$_POST["nom"]."','".$_POST["ape"]."','".$_POST["mail"]."','".$_POST["pass"]."','Cliente');";
 }else{
     header("Location: ../Presentacion/registro.html");
     exit();

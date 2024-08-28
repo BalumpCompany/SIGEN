@@ -29,7 +29,7 @@
 
 <body>
     <nav>
-        <a href="index.html"><img src="recursos/heracles_logo.jpg" alt="Logo Heracles" id="logo"></a>
+        <a href="index.php"><img src="recursos/heracles_logo.jpg" alt="Logo Heracles" id="logo"></a>
         <div id="final">
             <ul id="opcionesNav">
                 <li id="nav1"><a href="#unete">INICIO</a></li>
@@ -39,7 +39,9 @@
             <?php
             session_start();
          if(session_status()==2 && $_SESSION["logueado"]==true){
-            echo "<a href='ventana".$_SESSION["rol"].".php?user=".$_SESSION["user"]."'><button id='login'>IR A LA VENTANA</button></a>";
+            ?><form action="ventana<?php echo $_SESSION["rol"]; ?>.php" method="get">
+            <input type="hidden" name="user" value="<?php echo $_SESSION["user"]; ?>">
+            <button id='login'>IR A LA VENTANA</button></form><?php
         }else{
             echo "<a href='login.html'><button id='login'>INICIAR SESIÓN</button></a>";
             echo "<a href='registro.html'><button id='registro'>REGISTRARSE</button></a>";
@@ -165,39 +167,6 @@
 
     <script src="jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
-
-    <script>
-        /////////////////////////// Parte del efecto scroll /////////////////////////////////////
-        $(function () {
-            $('a[href*=#]').click(function () {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-                    && location.hostname == this.hostname) {
-                    var $target = $(this.hash);
-                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
-                    if ($target.length) {
-                        var targetOffset = $target.offset().top;
-                        $('html,body').animate({ scrollTop: targetOffset }, 1000);
-                        return false;
-                    }
-                }
-            });
-        });
-
-        //////////////// Reproducir sonido al hacer clic en los botones ///////////////////////
-
-        // Obtener todos los elementos con la clase "boton"
-        var buttons = document.getElementsByClassName('boton');
-        // Crear un audio y cargar el archivo de sonido mp3
-        var audio = new Audio('sonido/clic.mp3');
-        // Recorrer todas las clases denominadas "boton" y agregarles el evento clic
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', function () {
-                // Reproducir el sonido cuando se hace clic en el botón
-                audio.play();
-            });
-        }
-
-    </script>
 </body>
 
 </html>
