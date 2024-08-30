@@ -10,7 +10,7 @@
 <body>
     <nav>
         <a href="index.php"><img src="recursos/header_beige.jpg" alt="Heracles" id="imgNav"></a>
-        <a href="../Negocio/cerrarSesion.php"><button id="cerrarSesion">Cerrar sesión</button></a>
+        <form action="../Negocio/cerrarSesion.php" method="post" onsubmit="return confirmacion()"><button id="cerrarSesion">Cerrar sesión</button></form>
     </nav>
     <div id="barraLateral">
         <a href="verEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver ejercicios</p></a>
@@ -19,5 +19,7 @@
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
     </div>
     <h1>Elige una de las opciones</h1>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="confirmacion.js"></script>
 </body>
 </html>
