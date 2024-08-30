@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="icon" href="recursos/icono.png">
+
+</head>
+
+<body>
+    <header>
+        <a href="index.php"><img src="recursos/logo_registro.jpg" alt="logo" id="logo"></a>
+    </header>
+    <form action="../Negocio/login.php" method="post" id="cuadroLogin" onsubmit="return verificarDatos()">
+        <label for="user" id="labelUser">Ingresa tu Nombre de Usuario:</label><input type="text" name="user"
+            id="user"><br>
+        <div id="contrasena"><label for="pass">Ingresa tu Contraseña:</label><a href="olvidoContrasena.html"
+                id="olvidaste">Olvidaste tu contraseña?</a></div><input type="password" name="pass" id="pass"><br>
+        <button id="login">Iniciar Sesión</button><br><br>
+        <a href="registro.html" id="registrarse">Registrarse</a>
+    </form>
+    <footer>
+        <img src="recursos/balump.jpg" alt="balump" id="balump">
+        <a href="">Compañía</a>
+        <a href="">Soporte</a>
+        <a href="">Plataforma</a>
+    </footer>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>
