@@ -51,13 +51,13 @@ header{
     background-color: #242424;
     width: 25vw;
     height: 33vw;
-    border-radius: 10px;
+    border-radius: 0.5vw;
 }
 
 input{
     width: 20vw;
     height: 2vw;
-    border-radius: 10px;
+    border-radius: 1vw;
     border: none;
     margin-left: 2vw;
     margin-bottom: 1vw;
@@ -87,7 +87,7 @@ label{
     height: 1.8vw;
     background-color: #49a842;
     border: none;
-    border-radius: 10px;
+    border-radius: 1vw;
     cursor: pointer;
 }
 
