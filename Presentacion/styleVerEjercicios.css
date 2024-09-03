@@ -97,14 +97,31 @@ p{
     align-items: center;
 }
 
-h1{
-    width: 100vw;
-    height: 90vh;
-    margin-left: 20vw;
+#contenidoPrincipal{
+    position: absolute;
+    width: 82vw;
+    margin-left: 18vw;
+    margin-top: 7vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+h1{
     font-family: Inter;
-    font-size: 3vw;
+}
+
+table{
+    width: 30vw;
+    text-align: center;
+    font-family: 'Inter';
+
+}
+
+table,th,td{
+    padding: 0.5vw;
+    border: 2px solid;
+    border-collapse: collapse;
+    border-color: black;
 }
 

@@ -3,6 +3,10 @@ function verificarDatos() {
     if (document.forms["cuadroLogin"]["user"].value == "") {
         string += "usuario, ";
     }
+    if (document.forms["cuadroLogin"]["pass"].value.length < 8) {
+        alert("Contraseña muy corta, mínimo 8 caracteres");
+        return false;
+    }
     if (document.forms["cuadroLogin"]["pass"].value == "") {
         string += "contraseña, ";
     }

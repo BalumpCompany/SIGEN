@@ -1,3 +1,11 @@
+<?php
+require '../Datos/Ejercicio.php';
+require '../Datos/EjercicioRepo.php';
+
+$repo=new EjercicioRepo();
+$ejercicios=$repo->obtenerTodos();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +26,29 @@
         <a href="seleccionarHorario.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar horario</p></a>
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
     </div>
-    <h1>Elige una de las opciones</h1>
+    <div id="contenidoPrincipal">
+    <h1>Lista de Ejercicios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Gif</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($ejercicios as $ejercicio):?>
+                <tr>
+                    <td><strong><?php echo htmlspecialchars($ejercicio->ID_Ejercicio); ?></strong></td>
+                    <td><?php echo htmlspecialchars($ejercicio->Nombre); ?></td>
+                    <td><?php echo $ejercicio->Descripcion; ?></td>
+                    <td><?php echo $ejercicio->Gif; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    </div>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="confirmacion.js"></script>
 </body>
