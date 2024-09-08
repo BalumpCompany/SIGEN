@@ -20,10 +20,12 @@ create table Ejercicios (
 );
 create table Cliente (
     Numero_Socio int NOT NULL auto_increment,
+    Nombre varchar(30) NOT NULL,
+    Apellido varchar(30) NOT NULL,
     primary key (Numero_Socio)
 );
 create table Estado (
-    Id_Estado int NOT NULL,
+    Id_Estado int NOT NULL auto_increment,
     Estado varchar(30) NOT NULL,
     primary key (Id_Estado)
 );
@@ -41,7 +43,7 @@ create table Deportista (
     foreign key (Numero_Socio) references Cliente(Numero_Socio)
 );
 create table Cronograma (
-    Id_Cronograma int NOT NULL,
+    Id_Cronograma int NOT NULL auto_increment,
     Dia enum(
         'Lunes',
         'Martes',
@@ -67,7 +69,7 @@ create table Entrenador (
     primary key (ID_Entrenador)
 );
 create table Calificacion (
-    ID_Calificacion int NOT NULL,
+    ID_Calificacion int NOT NULL auto_increment,
     Item varchar(50) NOT NULL,
     primary key (ID_Calificacion)
 );
@@ -124,6 +126,20 @@ create table Cambia_Estado(
     primary key (Numero_Socio, Id_Estado),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (Id_Estado) references Estado(Id_Estado)
+);
+CREATE TABLE EsCliente(
+    Username varchar(20) NOT NULL,
+    Numero_Socio INT NOT NULL,
+    primary key(Username,Numero_Socio),
+    foreign key (Numero_Socio) references Cliente(Numero_Socio),
+    foreign key (Username) references usuario(Username)
+);
+CREATE TABLE EsEntrenador(
+    Username varchar(20) NOT NULL,
+    ID_Entrenador INT NOT NULL,
+    primary key(Username,ID_Entrenador),
+    foreign key (ID_Entrenador) references Entrenador(ID_Entrenador),
+    foreign key (Username) references usuario(Username)
 );
 CREATE TABLE `usuario` (
     `Username` varchar(20) NOT NULL,

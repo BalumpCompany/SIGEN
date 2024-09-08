@@ -3,7 +3,11 @@ require '../Datos/Ejercicio.php';
 require '../Datos/EjercicioRepo.php';
 
 $repo=new EjercicioRepo();
-$ejercicios=$repo->obtenerTodos();
+if (isset($_POST["nombre"])){
+    $ejercicios=$repo->obtener($_POST["nombre"]);
+}else{
+    $ejercicios=$repo->obtenerTodos();
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +32,7 @@ $ejercicios=$repo->obtenerTodos();
     </div>
     <div id="contenidoPrincipal">
     <h1>Lista de Ejercicios</h1>
+    <form action="" method="post"><input type="text" name="nombre" required style="width: 25vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
     <table>
         <thead>
             <tr>

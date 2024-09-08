@@ -23,7 +23,28 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
         <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
         <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
     </div>
-    <h1>Elige una de las opciones</h1>
+    <h1>Listado de clientes</h1>
+    <form action="" method="post"><input type="text" name="nombre" required style="width: 25vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Gif</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($clientes as $cliente):?>
+                <tr>
+                    <td><strong><?php echo htmlspecialchars($cliente->ID_Ejercicio); ?></strong></td>
+                    <td><?php echo htmlspecialchars($cliente->Nombre); ?></td>
+                    <td><?php echo $cliente->Descripcion; ?></td>
+                    <td><?php echo $cliente->Gif; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="confirmacion.js"></script>
 </body>

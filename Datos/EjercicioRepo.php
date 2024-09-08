@@ -28,5 +28,15 @@ class EjercicioRepo{
         var_dump($retorno);
         return $retorno; //Devuelvo el arreglo
     }
+
+    public function obtener($nombre){
+        $resultado = $this->conexion->query("SELECT * FROM ejercicios WHERE Nombre LIKE'%$nombre%'"); // Traigo todas las tareas de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while($ejercicio = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $ejercicio; //Agrego los objetos al arreglo auxiliar
+        }
+        var_dump($retorno);
+        return $retorno; //Devuelvo el arreglo
+    }
 }
 ?>
