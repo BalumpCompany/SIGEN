@@ -39,7 +39,7 @@ if (isset($_POST["nombre"])){
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Gif</th>
+                <th>Ejemplo</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@ if (isset($_POST["nombre"])){
                     <td><strong><?php echo htmlspecialchars($ejercicio->ID_Ejercicio); ?></strong></td>
                     <td><?php echo htmlspecialchars($ejercicio->Nombre); ?></td>
                     <td><?php echo $ejercicio->Descripcion; ?></td>
-                    <td><?php echo $ejercicio->Gif; ?></td>
+                    <td><img src="<?php echo $ejercicio->Gif; ?>" alt=":)" width="200"></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
