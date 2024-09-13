@@ -32,7 +32,7 @@ if (isset($_POST["nombre"])){
     </div>
     <div id="contenidoPrincipal">
     <h1>Lista de Ejercicios</h1>
-    <form action="" method="post"><input type="text" name="nombre" required style="width: 25vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
+    <form action="" method="post"><input type="text" name="nombre" required style="width: 26.3vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
     <table>
         <thead>
             <tr>
@@ -48,7 +48,7 @@ if (isset($_POST["nombre"])){
                     <td><strong><?php echo htmlspecialchars($ejercicio->ID_Ejercicio); ?></strong></td>
                     <td><?php echo htmlspecialchars($ejercicio->Nombre); ?></td>
                     <td><?php echo $ejercicio->Descripcion; ?></td>
-                    <td><img src="<?php echo $ejercicio->Gif; ?>" alt=":)" width="200"></td>
+                    <td><img src="recursos/Ejercicios/<?php echo $ejercicio->Gif; ?>" alt=":)" width="200"></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

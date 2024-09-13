@@ -6,7 +6,7 @@ class Ejercicio{
     private $desc;
     private $gif;
 
-    public function __construct($id=null,$nombre,$desc,$gif){
+    public function __construct($id,$nombre,$desc,$gif){
         $this->id=$id;
         $this->nombre=$nombre;
         $this->desc=$desc;

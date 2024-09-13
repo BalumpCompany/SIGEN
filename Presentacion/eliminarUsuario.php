@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Avanzado"){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
-    <link rel="stylesheet" href="styleCliente.css">
+    <link rel="stylesheet" href="styleVerEjercicios.css">
     <link rel="icon" href="recursos/icono.png">
 </head>
 <body>
@@ -20,7 +20,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
         <a href="modificarEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar ejercicios</p></a>
         <a href="crearUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Crear usuario</p></a>
         <a href="modificarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar usuario</p></a>
-        <a href="eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Eliminar usuario</p></a>
+        <a href="eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Eliminar usuario</p></a>
     </div>
     <h1>Elige una de las opciones</h1>
     <script src="jquery-3.7.1.min.js"></script>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Avanzado"){
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -115,7 +115,8 @@ table{
     width: 30vw;
     text-align: center;
     font-family: 'Inter';
-
+    margin-top: 1vw;
+    margin-bottom: 2vw;
 }
 
 table,th,td{

@@ -14,28 +14,35 @@ class EjercicioRepo{
         $nombre = $ejercicio->getNombre();
         $desc = $ejercicio->getDesc();
         $gif = $ejercicio->getGif();
-        $result = $this->conexion->query("INSERT INTO ejercicios (titulo, descripcion, gif) VALUES ('$nombre', '$desc', '$gif')"); //Inserto los datos
+        $result = $this->conexion->query("INSERT INTO ejercicios VALUES (NULL, '$nombre', '$desc', '$gif')"); //Inserto los datos
+        $this->conexion->close(); //Luego de insertado cierro la conexión
+        return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
+    }
+
+    public function modificar(Ejercicio $Ejercicio) {
+        $nombre = $Ejercicio->getNombre();
+        $descripcion = $Ejercicio->getDesc();
+        $id = $Ejercicio->getId();
+        $result = $this->conexion->query("UPDATE Ejercicios SET Nombre='".$nombre."', Descripcion='".$descripcion."' WHERE Id_Ejercicio=".$id);
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
 
     public function obtenerTodos() {
-        $resultado = $this->conexion->query("SELECT * FROM ejercicios"); // Traigo todas las tareas de la base de datos
+        $resultado = $this->conexion->query("SELECT * FROM ejercicios"); // Traigo todas las Ejercicios de la base de datos
         $retorno = []; //Arreglo auxiliar
         while($ejercicio = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
             $retorno[] = $ejercicio; //Agrego los objetos al arreglo auxiliar
         }
-        var_dump($retorno);
         return $retorno; //Devuelvo el arreglo
     }
 
     public function obtener($nombre){
-        $resultado = $this->conexion->query("SELECT * FROM ejercicios WHERE Nombre LIKE'%$nombre%'"); // Traigo todas las tareas de la base de datos
+        $resultado = $this->conexion->query("SELECT * FROM ejercicios WHERE Nombre LIKE'%$nombre%'"); // Traigo todas las Ejercicios de la base de datos
         $retorno = []; //Arreglo auxiliar
         while($ejercicio = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
             $retorno[] = $ejercicio; //Agrego los objetos al arreglo auxiliar
         }
-        var_dump($retorno);
         return $retorno; //Devuelvo el arreglo
     }
 }
