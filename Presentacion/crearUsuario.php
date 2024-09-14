@@ -19,7 +19,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Avanzado"){
     <div id="barraLateral">
         <a href="modificarEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar ejercicios</p></a>
         <a href="crearUsuario.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Crear usuario</p></a>
-        <a href="modificarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar usuario</p></a>
+        <a href="modificarUsuarios.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar usuario</p></a>
         <a href="eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Eliminar usuario</p></a>
     </div>
     <h1>Elige una de las opciones</h1>

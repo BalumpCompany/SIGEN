@@ -43,8 +43,8 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
                 <input type="text" name="user" value="<?php echo $_GET["user"]; ?>" hidden>
                 <input type="number" name="id" value="<?php echo $ejercicio->ID_Ejercicio; ?>" hidden>
                 <input type="text" name="gif" value="<?php echo $ejercicio->Gif; ?>" hidden>
-                <input type="text" name="nombre" value="<?php echo $ejercicio->Nombre; ?>" style="width:20vw; font-family:Inter;"><br>
-                <textarea name="desc" style="width:20vw; font-family:Inter;"><?php echo $ejercicio->Descripcion ?></textarea><br>
+                <label for="nombre" style="font-family:Inter; margin-left:-3.4vw;">Nombre </label><input type="text" name="nombre" value="<?php echo $ejercicio->Nombre; ?>" style="width:20vw; font-family:Inter;"><br>
+                <label for="apellido" style="font-family:Inter; margin-left:-4.95vw;">Descripcion </label><textarea name="desc" style="width:20vw; font-family:Inter;"><?php echo $ejercicio->Descripcion ?></textarea><br>
                 <button style="width:20vw; font-family:Inter;">Modificar</button>
             </form>
         </div>

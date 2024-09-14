@@ -1,13 +1,9 @@
 <?php
-require '../Datos/Ejercicio.php';
-require '../Datos/EjercicioRepo.php';
+require '../Datos/Usuario.php';
+require '../Datos/UsuarioRepo.php';
 
-$repo = new EjercicioRepo();
-if (isset($_POST["nombre"])) {
-    $ejercicios = $repo->obtener($_POST["nombre"]);
-} else {
-    $ejercicios = $repo->obtenerTodos();
-}
+$repo = new UsuarioRepo();
+$usuarios = $repo->obtenerTodos();
 session_start();
 if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
     ?>
@@ -30,41 +26,43 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
         </nav>
         <div id="barraLateral">
             <a href="modificarEjercicios.php?user=<?php echo $_GET["user"]; ?>">
-                <p id="opcionActual">Modificar ejercicios</p>
+                <p>Modificar ejercicios</p>
             </a>
             <a href="crearUsuario.php?user=<?php echo $_GET["user"]; ?>">
                 <p>Crear usuario</p>
             </a>
             <a href="modificarUsuarios.php?user=<?php echo $_GET["user"]; ?>">
-                <p>Modificar usuario</p>
+                <p id="opcionActual">Modificar usuario</p>
             </a>
             <a href="eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>">
                 <p>Eliminar usuario</p>
             </a>
         </div>
         <div id="contenidoPrincipal">
-            <h1>Lista de Ejercicios</h1>
+            <h1>Lista de Usuarios</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Nombre de usuario</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Ejemplo</th>
+                        <th>Apellido</th>
+                        <th>E-Mail</th>
+                        <th>Rol</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($ejercicios as $ejercicio): ?>
+                    <?php foreach ($usuarios as $usuario): ?>
                         <tr>
-                            <td><strong><?php echo htmlspecialchars($ejercicio->ID_Ejercicio); ?></strong></td>
-                            <td><?php echo htmlspecialchars($ejercicio->Nombre); ?></td>
-                            <td><?php echo $ejercicio->Descripcion; ?></td>
-                            <td><img src="recursos/Ejercicios/<?php echo $ejercicio->Gif; ?>" alt=":)" width="200"></td>
+                            <td><strong><?php echo $usuario->Username; ?></strong></td>
+                            <td><?php echo $usuario->Nombre; ?></td>
+                            <td><?php echo $usuario->Apellido; ?></td>
+                            <td><?php echo $usuario->Email; ?></td>
+                            <td><?php echo $usuario->Rol; ?></td>
                             <td>
-                                <form action="formularioEjercicio.php?user=<?php echo $_GET["user"]; ?>" method="post"><input
-                                        type="hidden" name="id" value="<?php echo $ejercicio->Nombre ?>"><button
-                                        style="height: 10vw; background-color:white; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Modificar</button>
+                                <form action="formularioUsuario.php?user=<?php echo $_GET["user"]; ?>" method="post"><input
+                                        type="hidden" name="username" value="<?php echo $usuario->Username; ?>"><button
+                                        style="height: 3vw; background-color:white; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Modificar</button>
                                 </form>
                             </td>
                         </tr>
