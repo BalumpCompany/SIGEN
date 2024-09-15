@@ -33,7 +33,11 @@ class UsuarioRepo{
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
-
+    public function eliminar($username){
+        $result = $this->conexion->query("DELETE FROM usuario WHERE Username='$username'");
+        $this->conexion->close(); //Luego de insertado cierro la conexión
+        return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
+    }
     public function obtenerTodos() {
         $resultado = $this->conexion->query("SELECT * FROM usuario"); // Traigo todas las Usuarios de la base de datos
         $retorno = []; //Arreglo auxiliar

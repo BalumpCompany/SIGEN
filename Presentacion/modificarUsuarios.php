@@ -6,7 +6,7 @@ $repo = new UsuarioRepo();
 $usuarios = $repo->obtenerTodos();
 session_start();
 if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
-    ?>
+?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -75,7 +75,7 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
     </body>
 
     </html>
-    <?php
+<?php
 } else {
     header("Location:index.php");
     exit();
