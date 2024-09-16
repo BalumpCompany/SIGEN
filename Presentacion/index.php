@@ -55,7 +55,7 @@
     </div>
 
     <div id="aboutus">
-        <h1 id="aboutTitulo">About us</h1>
+        <h1 id="aboutTitulo">Nosotros</h1>
         <span id="aboutContenido">En Heracles, nos enorgullece ofrecer un espacio donde cada individuo puede alcanzar
             sus objetivos de acondicionamiento físico y bienestar. Nuestro nombre, inspirado en el legendario héroe
             griego conocido por su fuerza y valor, refleja nuestro compromiso con la superación personal y el desarrollo
