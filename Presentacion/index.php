@@ -66,7 +66,7 @@
         <h1 class="title">Preguntas Frecuentes</h1>
         <div class="faq">
             <div class="preguntas">
-                <h1>¿Pregunta?</h1>
+                <h1>¿Métodos de pago?</h1>
                 <svg width="15" height="10" viewBox="0 0 42 25">
                     <path
                     d="M3 3L21 21L39 3"
@@ -77,13 +77,12 @@
                 </svg>
             </div>
             <div class="respuestas">
-                <p>RespuestaRespuestaRespuestaRespuestaRespuestaRespuesta
-                    Respuesta</p>
+                <p>El pago puede ser de forma presencial en la sucursal a la cual asistis, transferencia bancaria o a través de mercado pago.</p>
             </div>
         </div>
         <div class="faq">
             <div class="preguntas">
-                <h1>¿Pregunta?</h1>
+                <h1>¿Con quien me puedo contactar ante cualquier duda?</h1>
                 <svg width="15" height="10" viewBox="0 0 42 25">
                     <path
                     d="M3 3L21 21L39 3"
@@ -94,15 +93,15 @@
                 </svg>
             </div>
             <div class="respuestas">
-                <p>RespuestaRespuestaRespuestaRespuestaRespuestaRespuesta
-                    Respuesta
+                <p>Te puedes contactar a través de telefono o mail con nuestro departamento de "ayuda al cliente".<br>
+                    TEL: 2362 4427<br>MAIL: heracles@gmail.com
                 </p>
             </div>
         </div>
 
         <div class="faq">
             <div class="preguntas">
-                <h1>¿Pregunta?</h1>
+                <h1>Sucursales</h1>
                 <svg width="15" height="10" viewBox="0 0 42 25">
                     <path
                     d="M3 3L21 21L39 3"
@@ -113,8 +112,7 @@
                 </svg>
             </div>
             <div class="respuestas">
-                <p>RespuestaRespuestaRespuestaRespuestaRespuestaRespuesta
-                    Respuesta
+                <p>Contamos con 3 sucursales a lo largo del país: Pocitos, Prado y Paso molino
                 </p>
             </div>
         </div>
@@ -124,37 +122,6 @@
     <footer>
         <div id="parteArriba">
             <div id="primerParte">
-                <img src="recursos/logo_footer.jpg" alt="logofooter" id="logofooter">
-                <p id="ubicacion">Ubicación:<br>Ubicación oficial</p>
-                <p id="telefono">Teléfono de contacto:<br>+598 90 000 000</p>
-                <p id="mail">Mail:<br>heracles@gmail.com</p>
-            </div>
-            <div id="compañia">
-                <h1 id="tituloCompañia">Compañía</h1>
-                <ul>
-                    <li id="compañia1">Opción</li>
-                    <li id="compañia2">Opción</li>
-                    <li id="compañia3">Opción</li>
-                    <li id="compañia4">Opción</li>
-                </ul>
-            </div>
-            <div id="soporte">
-                <h1 id="tituloSoporte">Soporte</h1>
-                <ul>
-                    <li id="soporte1">Opción</li>
-                    <li id="soporte2">Opción</li>
-                    <li id="soporte3">Opción</li>
-                    <li id="soporte4">Opción</li>
-                </ul>
-            </div>
-            <div id="plataforma">
-                <h1 id="tituloPlataforma">Plataforma</h1>
-                <ul>
-                    <li id="plataforma1">Opción</li>
-                    <li id="plataforma2">Opción</li>
-                    <li id="plataforma3">Opción</li>
-                    <li id="plataforma4">Opción</li>
-                </ul>
             </div>
         </div>
         <div id="ubicaciones">

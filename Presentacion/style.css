@@ -305,54 +305,11 @@ footer{
     border-top-color: #f9e8b2;
     border-top-style: solid;
     border-top-width: 0.1vw;
-    width: 100%;
+    width: 100%;    
     background-color: black;
 }
 
-#parteArriba{
-    display: flex;
-}
-
-#logofooter{
-    width: 10vw;
-    height: 3vw;
-}
-
-#tituloCompañia,#tituloSoporte,#tituloPlataforma{
-    font-family: Inter;
-    color: #f9e8b2;
-    font-weight: bold;
-}
-
-#compañia1,#compañia2,#compañia3,#compañia4,#soporte1,#soporte2,#soporte3,#soporte4,#plataforma1,#plataforma2,#plataforma3,#plataforma4{
-    margin-top: 0.5vw;
-    color: white;
-    font-family: Inter;
-    list-style: none;
-}
-
-#compañia,#soporte,#plataforma{
-    text-align: left;
-    margin-right: 2vw;
-    margin-top: 5vw;
-    display: inline;
-}
-
-#ubicacion,#telefono,#mail{
-    font-family: Inter;
-    font-size: 0.7vw;
-    color: white;
-}
-
-#primerParte{
-    display: inline;
-    margin-top: 5vw;
-    margin-left: 30vw;
-    margin-right: 5vw;
-}
-
 #ubicaciones{
-    margin-top: 10vw;
     margin-left: 10%;
     display: flex;
     width: 80%;
