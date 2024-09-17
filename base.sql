@@ -98,7 +98,7 @@ create table Rutina (
 create table Asignado (
     Numero_Socio int NOT NULL,
     ID_Entrenador int NOT NULL,
-    primary key (Numero_Socio),
+    primary key (Numero_Socio,ID_Entrenador),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
 );
@@ -145,14 +145,14 @@ CREATE TABLE `usuario` (
 );
 CREATE TABLE EsCliente(
     Username varchar(20) NOT NULL,
-    Numero_Socio INT NOT NULL,
+    Numero_Socio INT NOT NULL auto_increment,
     primary key(Username,Numero_Socio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (Username) references usuario(Username)
 );
 CREATE TABLE EsEntrenador(
     Username varchar(20) NOT NULL,
-    ID_Entrenador INT NOT NULL,
+    ID_Entrenador INT NOT NULL auto_increment,
     primary key(Username,ID_Entrenador),
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador),
     foreign key (Username) references usuario(Username)

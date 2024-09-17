@@ -1,15 +1,14 @@
 <?php
-include("conexion_db.php");
+require '../Datos/Usuario.php';
+require '../Datos/UsuarioRepo.php';
 session_start();
-$queryLogin="SELECT Contrasena,Rol FROM Usuario WHERE Username='".$_POST["user"]."';";
-$fetch=$conexionBDUsuario->query($queryLogin)->fetch_assoc();
-var_dump($fetch["Contrasena"]) ;
-var_dump($_POST["pass"]);
-if ($_POST["pass"]===$fetch["Contrasena"]) {
-    header("Location: ../Presentacion/ventana".$fetch["Rol"].".php?user=".$_POST["user"]);
+$repo = new UsuarioRepo();
+$usuario = $repo->obtener($_POST["user"])[0];
+if ($_POST["pass"]===$usuario->Contrasena) {
+    header("Location: ../Presentacion/ventana".$usuario->Rol.".php?user=".$_POST["user"]);
     $_SESSION["logueado"]=true;
     $_SESSION["user"]=$_POST["user"];
-    $_SESSION["rol"]=$fetch["Rol"];
+    $_SESSION["rol"]=$usuario->Rol;
 }else{
     header("Location: ../Presentacion/login.html");
 }

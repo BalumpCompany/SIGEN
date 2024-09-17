@@ -1,12 +1,27 @@
 <?php
-include("conexion_db.php");
+require '../Datos/Usuario.php';
+require '../Datos/UsuarioRepo.php';
+require '../Datos/Cliente.php';
+require '../Datos/ClienteRepo.php';
+
+$username=$_POST["user"];
+$nombre = $_POST["nom"];
+$apellido = $_POST["ape"];
+$mail = $_POST["mail"];
+$contrasena = $_POST["pass"];
+$repoUsuario = new UsuarioRepo();
+$repoCliente = new ClienteRepo();
+
+
 if($_POST["pass"]===$_POST["pass2"]){
-$queryRegistro= "INSERT INTO Usuario VALUES('".$_POST["user"]."','".$_POST["nom"]."','".$_POST["ape"]."','".$_POST["mail"]."','".$_POST["pass"]."','Cliente');";
+    $usuario = new Usuario($username, $nombre, $apellido, $mail, $contrasena, 'Cliente');
+    $repoUsuario->guardar($usuario);
+    $cliente = new Cliente(NULL,$nombre,$apellido);
+    var_dump($repoCliente->guardar($cliente,$username));
 }else{
     header("Location: ../Presentacion/registro.html");
     exit();
 }
-$conexionBDUsuario->query($queryRegistro);
 ?>
 <!DOCTYPE html>
 <html lang="en">
