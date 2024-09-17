@@ -139,7 +139,7 @@ CREATE TABLE `usuario` (
         'Coach',
         'Avanzado',
         'Seleccionador',
-        'Admin TI'
+        'AdminTI'
     ) NOT NULL,
     primary key (Username)
 );
