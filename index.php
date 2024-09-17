@@ -1,6 +1,6 @@
 <?php
 session_start();
 $_SESSION["logueado"]=false;
-header("Location: ./Presentacion/index.php");
+header("Location: ./SIGEN/Presentacion/index.php");
 exit();
 ?>
