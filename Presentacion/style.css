@@ -57,6 +57,8 @@ nav {
     align-items: center;
 }
 
+
+
 button {
     width: 8.5vw;
     height: 4vh;
@@ -75,16 +77,23 @@ button {
     border-color: #f9e8b2;
     border-style: solid;
     border-width: 0.1vw;
+    cursor: pointer;
 }
 
 #registro {
     background-color: #f9e8b2;
     border-style: none;
+    cursor: pointer;
 }
 
 a {
     color: white;
     text-decoration: none;
+}
+
+a:hover{
+color: #f9e8b2;
+text-decoration: overline;
 }
 
 #unete {
@@ -313,13 +322,14 @@ footer{
     margin-left: 10%;
     display: flex;
     width: 80%;
-    color: #f9e8b2;
+    color: #ffffff;
     font-family: Inter;
     font-weight: bolder;
     justify-content: space-evenly;
     border-bottom: #f9e8b2;
     border-bottom-width: 0.1vw;
     border-bottom-style: solid;
+    cursor: pointer;
 }
 
 #balumpco{
@@ -328,5 +338,5 @@ footer{
     margin-bottom: 2vw;
     font-family: Inter;
     color: white;
-    text-decoration: underline;
+
 }
