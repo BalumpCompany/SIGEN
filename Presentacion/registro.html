@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styleRegistro.css">
+    <link rel="icon" href="recursos/icono.png">
+</head>
+
+<body>
+    <header>
+        <a href="index.php"><img src="recursos/logo_registro.jpg" alt="logo" id="logo"></a>
+        <a href="login.html"><button id="iniciarSesion">Iniciar Sesión</button></a>
+    </header>
+    <form action="../Negocio/registro.php" method="post" id="cuadroRegistro" onsubmit="return verificarDatos()">
+        <label for="mail" id="labelmail">Ingresa tu email:</label><input type="text" name="mail" id="mail" required><br>
+        <label for="user">Ingresa tu Nombre de Usuario:</label><input type="text" name="user" id="user" required><br>
+        <label for="nombre">Ingresa tu Nombre:</label><input type="text" name="nom" id="nom" required><br>
+        <label for="apellido">Ingresa tu Apellido:</label><input type="text" name="ape" id="ape" required><br>
+        <label for="pass">Ingresa tu Contraseña:</label><input type="password" name="pass" id="pass" minlength="8" required><br>
+        <label for="pass2">Repite tu Contraseña:</label><input type="password" name="pass2" id="pass2" minlength="8" required><br>
+        <button id="registrarse">Registrarse</button>
+    </form>
+    <footer>
+        <img src="recursos/balump.jpg" alt="balump" id="balump">
+        <a href="">Compañía</a>
+        <a href="">Soporte</a>
+        <a href="">Plataforma</a>
+    </footer>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="registro.js"></script>
+</body>
+
+</html>
