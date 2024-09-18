@@ -8,6 +8,7 @@ if (isset($_POST["nombre"])){
 }else{
     $ejercicios=$repo->obtenerTodos();
 }
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
 ?>
 
 <!DOCTYPE html>
@@ -58,3 +59,9 @@ if (isset($_POST["nombre"])){
     <script src="confirmacion.js"></script>
 </body>
 </html>
+<?php
+}else{
+    header("Location:index.php");
+    exit();
+}
+?>

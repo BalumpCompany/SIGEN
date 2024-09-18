@@ -17,7 +17,7 @@ if($_POST["pass"]===$_POST["pass2"]){
     $usuario = new Usuario($username, $nombre, $apellido, $mail, $contrasena, 'Cliente');
     $repoUsuario->guardar($usuario);
     $cliente = new Cliente(NULL,$nombre,$apellido);
-    var_dump($repoCliente->guardar($cliente,$username));
+    $repoCliente->guardar($cliente,$username);
 }else{
     header("Location: ../Presentacion/registro.html");
     exit();

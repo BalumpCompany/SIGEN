@@ -66,6 +66,7 @@ create table Sede (
 );
 create table Entrenador (
     ID_Entrenador int NOT NULL auto_increment,
+    Nombre varchar(30) NOT NULL,
     primary key (ID_Entrenador)
 );
 create table Calificacion (
