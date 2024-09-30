@@ -133,7 +133,7 @@ CREATE TABLE `usuario` (
     `Nombre` varchar(20) NOT NULL,
     `Apellido` varchar(20) NOT NULL,
     `Email` varchar(60) NOT NULL,
-    `Contrasena` varchar(20) NOT NULL,
+    `Contrasena` varchar(255) NOT NULL,
     `Rol` enum(
         'Cliente',
         'Admin',

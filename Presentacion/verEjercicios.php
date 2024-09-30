@@ -1,7 +1,7 @@
 <?php
 require '../Datos/Ejercicio.php';
 require '../Datos/EjercicioRepo.php';
-
+session_start();
 $repo=new EjercicioRepo();
 if (isset($_POST["nombre"])){
     $ejercicios=$repo->obtener($_POST["nombre"]);

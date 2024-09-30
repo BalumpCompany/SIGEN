@@ -8,7 +8,7 @@ $username=$_POST["user"];
 $nombre = $_POST["nom"];
 $apellido = $_POST["ape"];
 $mail = $_POST["mail"];
-$contrasena = $_POST["pass"];
+$contrasena = password_hash($_POST["pass"],PASSWORD_BCRYPT,["cost" => 10]);
 $repoUsuario = new UsuarioRepo();
 $repoCliente = new ClienteRepo();
 

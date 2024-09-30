@@ -1,3 +1,4 @@
+use heracles_bd;
 INSERT INTO Ejercicios VALUES (NULL,'Press plano','Entrena pecho','Pecho/press_plano.webp');
 INSERT INTO Ejercicios VALUES (NULL,'Press inclinado','Entrena pecho','Pecho/press_inclinado.webp');
 INSERT INTO Ejercicios VALUES (NULL,'Apertura plana','Entrena pecho','Pecho/aperturas_planos.webp');

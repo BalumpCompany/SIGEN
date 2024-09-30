@@ -17,7 +17,7 @@ class UsuarioRepo{
         $mail = $Usuario->getMail();
         $contrasena = $Usuario->getContrasena();
         $rol = $Usuario->getRol();
-        $result = $this->conexion->query("INSERT INTO usuario VALUES ('$username','$nombre','$apellido','$mail',SHA1('$contrasena'),'$rol')"); //Inserto los datos
+        $result = $this->conexion->query("INSERT INTO usuario VALUES ('$username','$nombre','$apellido','$mail','$contrasena','$rol')"); //Inserto los datos
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
@@ -47,8 +47,8 @@ class UsuarioRepo{
         return $retorno; //Devuelvo el arreglo
     }
 
-    public function obtener($username, $contrasena){
-        $resultado = $this->conexion->query("SELECT * FROM usuario WHERE Username='$username' AND Contrasena=SHA1('$contrasena')"); // Traigo todas las Usuarios de la base de datos
+    public function obtener($username){
+        $resultado = $this->conexion->query("SELECT * FROM usuario WHERE Username='$username'"); // Traigo todas las Usuarios de la base de datos
         $retorno = []; //Arreglo auxiliar
         while($Usuario = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
             $retorno[] = $Usuario; //Agrego los objetos al arreglo auxiliar
