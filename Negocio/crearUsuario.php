@@ -28,7 +28,14 @@ if($rol==="Cliente"){
     $entrenador = new Entrenador(NULL,$nombre);
     $repoEntrenador->guardar($entrenador,$username);
 }
+else if($rol==="Seleccionador"){
+    include '../Datos/Seleccionador.php';
+    include '../Datos/SeleccionadorRepo.php';
 
+    $repoSeleccionador = new SeleccionadorRepo();
+    $seleccionador = new Seleccionador(NULL,$nombre);
+    $repoSeleccionador->guardar($seleccionador,$username);
+}
 header("Location: ../Presentacion/crearUsuario.php?user=".$_POST["user"]);
 exit();
 ?>

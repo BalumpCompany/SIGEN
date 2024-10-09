@@ -36,11 +36,12 @@ create table Fisioterapia (
     foreign key (Numero_Socio) references Cliente(Numero_Socio)
 );
 create table Deportista (
-    Deporte varchar(50) NOT NULL,
+    ID_Deporte int NOT NULL auto_increment,
     Posicion varchar(50) NOT NULL,
     Numero_Socio int NOT NULL,
     primary key (Numero_Socio),
-    foreign key (Numero_Socio) references Cliente(Numero_Socio)
+    foreign key (Numero_Socio) references Cliente(Numero_Socio),
+    foreign key (ID_Deporte) references Deporte(ID_Deporte)
 );
 create table Cronograma (
     Id_Cronograma int NOT NULL auto_increment,
@@ -49,8 +50,7 @@ create table Cronograma (
         'Martes',
         'Miercoles',
         'Jueves',
-        'Viernes',
-        'Sabado'
+        'Viernes'
     ),
     Inicio time,
     Fin time,
@@ -68,6 +68,11 @@ create table Entrenador (
     ID_Entrenador int NOT NULL auto_increment,
     Nombre varchar(30) NOT NULL,
     primary key (ID_Entrenador)
+);
+create table Seleccionador(
+    ID_Seleccionador int NOT NULL auto_increment,
+    Nombre varchar(30) NOT NULL,
+    primary key (ID_Seleccionador)
 );
 create table Calificacion (
     ID_Calificacion int NOT NULL auto_increment,
@@ -92,7 +97,14 @@ create table Ejercicio_Clase (
 create table Rutina (
     ID_Ejercicio int NOT NULL,
     Numero_Socio int NOT NULL,
-    primary key (ID_Ejercicio, Numero_Socio),
+    Dia enum(
+        'Lunes',
+        'Martes',
+        'Miercoles',
+        'Jueves',
+        'Viernes'
+    ),
+    primary key (ID_Ejercicio, Numero_Socio, Dia),
     foreign key (ID_Ejercicio) references Ejercicios(ID_Ejercicio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio)
 );
@@ -108,6 +120,7 @@ create table Califica (
     ID_Calificacion int NOT NULL,
     Puntaje_obtenido int NOT NULL,
     Puntaje_esperado int NOT NULL,
+    fecha DATETIME NOT NULL,
     primary key (Numero_Socio, ID_Calificacion),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Calificacion) references Calificacion(ID_Calificacion)
@@ -124,7 +137,7 @@ create table Cambia_Estado(
     Id_Estado int NOT NULL,
     Fecha_Inicio date NOT NULL,
     Fecha_Fin date,
-    primary key (Numero_Socio, Id_Estado),
+    primary key (Numero_Socio, Id_Estado, Fecha_Inicio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (Id_Estado) references Estado(Id_Estado)
 );
@@ -158,8 +171,10 @@ CREATE TABLE EsEntrenador(
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador),
     foreign key (Username) references usuario(Username)
 );
-
-
-
-
-
+CREATE TABLE EsSeleccionador(
+    Username varchar(20) NOT NULL,
+    ID_Seleccionador INT NOT NULL auto_increment,
+    primary key(Username,ID_Seleccionador),
+    foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador),
+    foreign key (Username) references usuario(Username)
+);
