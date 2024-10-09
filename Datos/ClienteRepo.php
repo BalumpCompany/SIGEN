@@ -27,5 +27,12 @@ class ClienteRepo{
         }
         return $retorno; //Devuelvo el arreglo
     }
+
+    public function asiste($id,$user){
+        $nro=$this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
+        $result=$this->conexion->query("INSERT INTO asiste VALUES ($id,$nro[0])");
+        $this->conexion->close();
+        return $result;
+    }
 }
 ?>

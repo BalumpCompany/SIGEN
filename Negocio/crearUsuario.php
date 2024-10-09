@@ -26,6 +26,7 @@ if($rol==="Cliente"){
 
     $repoEntrenador = new EntrenadorRepo();
     $entrenador = new Entrenador(NULL,$nombre);
+    $repoEntrenador->guardar($entrenador,$username);
 }
 
 header("Location: ../Presentacion/crearUsuario.php?user=".$_POST["user"]);
