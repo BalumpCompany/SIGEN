@@ -34,6 +34,9 @@ class UsuarioRepo{
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
     public function eliminar($username){
+        $result = $this->conexion->query("DELETE FROM esentrenador WHERE Username='$username'");
+        $result = $this->conexion->query("DELETE FROM escliente WHERE Username='$username'");
+        $result = $this->conexion->query("DELETE FROM esSeleccionador WHERE Username='$username'");
         $result = $this->conexion->query("DELETE FROM usuario WHERE Username='$username'");
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
