@@ -120,7 +120,7 @@ create table Califica (
     ID_Calificacion int NOT NULL,
     Puntaje_obtenido int NOT NULL,
     Puntaje_esperado int NOT NULL,
-    fecha DATETIME NOT NULL,
+    fecha DATE NOT NULL,
     primary key (Numero_Socio, ID_Calificacion),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Calificacion) references Calificacion(ID_Calificacion)

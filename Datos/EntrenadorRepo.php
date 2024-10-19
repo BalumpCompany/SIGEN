@@ -45,7 +45,13 @@ class EntrenadorRepo{
         foreach($nros as $nro1){
             $retorno[]=$this->conexion->query("SELECT * FROM cliente WHERE Numero_Socio=$nro1->Numero_Socio")->fetch_object();
         }
+        $this->conexion->close();
+        return $retorno;
+    }
 
+    public function puntuar($nro,$cump,$resAn,$fuerza,$resMus,$flex,$resMon,$resi,$cumpE,$resAnE,$fuerzaE,$resMusE,$flexE,$resMonE,$resiE){
+        $retorno=$this->conexion->multi_query("INSERT INTO califica VALUES ($nro,1,$cump,$cumpE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,2,$resAn,$resAnE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,3,$fuerza,$fuerzaE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,4,$resMus,$resMusE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,5,$flex,$flexE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,6,$resMon,$resMonE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,7,$resi,$resiE,CURRENT_DATE);");
+        $this->conexion->close();
         return $retorno;
     }
 }

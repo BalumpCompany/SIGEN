@@ -21,7 +21,6 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
     </nav>
     <div id="barraLateral">
         <a href="modificarRutina.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar rutina</p></a>
-        <a href="puntuarDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Puntuar deportista</p></a>
         <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver clientes asignados</p></a>
         <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
         <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
@@ -43,6 +42,12 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
                     <td><strong><?php echo htmlspecialchars($cliente->Numero_Socio); ?></strong></td>
                     <td><?php echo htmlspecialchars($cliente->Nombre); ?></td>
                     <td><?php echo $cliente->Apellido; ?></td>
+                    <td><form action="puntuarDeportista.php" method="get">
+                        <input type="text" name="user" value="<?php echo $_GET["user"]; ?>" hidden>
+                        <input type="text" name="nombre" value="<?php echo $cliente->Nombre." ".$cliente->Apellido; ?>" hidden>
+                        <input hidden type="number" name="nro" value="<?php echo $cliente->Numero_Socio; ?>">
+                        <button style="height: 2vw; background-color:white; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Puntuar</button>
+                    </form></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
