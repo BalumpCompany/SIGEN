@@ -7,7 +7,7 @@ $conexionBD = new mysqli($server, $usuario, $contrasena, $nombreBDUsuario);
 if ($conexionBD->connect_error) {
     die("Falló la conexión " . $conexionBD->connect_error);
 }
-$query = file_get_contents("usuariosEjemplo.sql").file_get_contents("ejerciciosEjemplo.sql").file_get_contents("calificacion.sql").file_get_contents("cronograma.sql");
+$query = file_get_contents("usuariosEjemplo.sql").file_get_contents("ejerciciosEjemplo.sql").file_get_contents("calificacion.sql").file_get_contents("cronograma.sql").file_get_contents("deportes.sql");
 if(!$conexionBD->multi_query($query)){
     die("Falló la inserción de los ejemplos, log: " . $conexionBD->error);
 }

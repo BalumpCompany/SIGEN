@@ -21,10 +21,32 @@ class EntrenadorRepo{
     public function obtenerTodos() {
         $resultado = $this->conexion->query("SELECT * FROM entrenador"); // Traigo todas las Clientes de la base de datos
         $retorno = []; //Arreglo auxiliar
-        while($Cliente = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
-            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        while($Entrenador = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Entrenador; //Agrego los objetos al arreglo auxiliar
         }
         return $retorno; //Devuelvo el arreglo
+    }
+
+    public function trabaja($id,$user){
+        $nro=$this->conexion->query("SELECT ID_Entrenador FROM esentrenador WHERE Username='$user'")->fetch_array();
+        $result=$this->conexion->query("INSERT INTO trabaja VALUES ($nro[0],$id)");
+        $this->conexion->close();
+        return $result;
+    }
+
+    public function obtenerClientesAsignados($user){
+        $id=$this->conexion->query("SELECT ID_Entrenador FROM esentrenador WHERE Username='$user'")->fetch_array();
+        $query=$this->conexion->query("SELECT Numero_Socio FROM asignado WHERE ID_Entrenador=$id[0]");
+        $nros=[];
+        $retorno=[];
+        while($nro=$query->fetch_object()){
+            $nros[]=$nro;
+        }
+        foreach($nros as $nro1){
+            $retorno[]=$this->conexion->query("SELECT * FROM cliente WHERE Numero_Socio=$nro1->Numero_Socio")->fetch_object();
+        }
+
+        return $retorno;
     }
 }
 ?>

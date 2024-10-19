@@ -18,5 +18,22 @@ class CronogramaRepo{
         }
         return $retorno; //Devuelvo el arreglo
     }
+
+    public function verificarDispCliente($id){
+        $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id")->num_rows;
+        $asiste = $this->conexion->query("SELECT * FROM asiste WHERE Id_Cronograma=$id")->num_rows;
+        if($trabaja<1 || $asiste>=6){
+            return false;
+        }
+        return true;
+    }
+
+    public function verificarDispCoach($id){
+        $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id")->num_rows;
+        if($trabaja>0){
+            return false;
+        }
+        return true;
+    }
 }
 ?>

@@ -6,7 +6,7 @@ $username=$_POST["username"];
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $mail = $_POST["mail"];
-$contrasena = password_hash($_POST["pass"],PASSWORD_BCRYPT,["cost" => 10]);
+$contrasena = password_hash($_POST["contrasena"],PASSWORD_BCRYPT,["cost" => 10]);
 $rol = $_POST["rol"];
 
 
