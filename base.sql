@@ -35,11 +35,11 @@ create table Fisioterapia (
     primary key (Numero_Socio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio)
 );
-create table Deportista (
-    ID_Deporte int NOT NULL auto_increment,
+create table esDeportista (
+    ID_Deporte int NOT NULL,
     Posicion varchar(50) NOT NULL,
     Numero_Socio int NOT NULL,
-    primary key (Numero_Socio),
+    primary key (Numero_Socio,ID_Deporte),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Deporte) references Deporte(ID_Deporte)
 );
@@ -140,6 +140,13 @@ create table Cambia_Estado(
     primary key (Numero_Socio, Id_Estado, Fecha_Inicio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (Id_Estado) references Estado(Id_Estado)
+);
+create table Trabaja(
+    ID_Entrenador int NOT NULL,
+    Id_Cronograma int NOT NULL,
+    primary key (Id_Cronograma),
+    foreign key (Id_Cronograma) references Cronograma(Id_Cronograma),
+    foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
 );
 CREATE TABLE `usuario` (
     `Username` varchar(20) NOT NULL,

@@ -1,6 +1,9 @@
 <?php
 session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
+    require '../Datos/EntrenadorRepo.php';
+    $repo = new EntrenadorRepo();
+    $clientes= $repo->obtenerClientesAsignados($_GET["user"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,29 +25,29 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
         <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver clientes asignados</p></a>
         <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
         <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
+        <a href="seleccHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar horario</p></a>
     </div>
-    <h1>Listado de clientes</h1>
-    <form action="" method="post"><input type="text" name="nombre" required style="width: 25vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
+    <div id="contenidoPrincipal">
+    <h1>Listado de clientes asignados</h1>
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>N° Socio</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Gif</th>
+                <th>Apellido</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($clientes as $cliente):?>
                 <tr>
-                    <td><strong><?php echo htmlspecialchars($cliente->ID_Ejercicio); ?></strong></td>
+                    <td><strong><?php echo htmlspecialchars($cliente->Numero_Socio); ?></strong></td>
                     <td><?php echo htmlspecialchars($cliente->Nombre); ?></td>
-                    <td><?php echo $cliente->Descripcion; ?></td>
-                    <td><?php echo $cliente->Gif; ?></td>
+                    <td><?php echo $cliente->Apellido; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="confirmacion.js"></script>
 </body>

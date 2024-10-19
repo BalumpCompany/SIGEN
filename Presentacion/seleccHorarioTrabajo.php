@@ -1,7 +1,7 @@
 <?php
 require '../Datos/CronogramaRepo.php';
 session_start();
-if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
     $cronogramaRepo=new CronogramaRepo();
     $cronogramas=$cronogramaRepo->obtenerTodos();
 ?>
@@ -20,10 +20,12 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
         <form action="../Negocio/cerrarSesion.php" method="post" onsubmit="return confirmacion()"><button id="cerrarSesion">Cerrar sesión</button></form>
     </nav>
     <div id="barraLateral">
-        <a href="verEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Ver ejercicios</p></a>
-        <a href="verCalificaciones.php?user=<?php echo $_GET["user"]; ?>"><p>Ver calificaciones</p></a>
-        <a href="seleccionarHorario.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Seleccionar horario</p></a>
-        <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
+        <a href="modificarRutina.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar rutina</p></a>
+        <a href="puntuarDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Puntuar deportista</p></a>
+        <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes asignados</p></a>
+        <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
+        <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
+        <a href="seleccionarHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Seleccionar horario</p></a>
     </div>
     <div id="contenidoPrincipal">
         <table>
@@ -47,12 +49,11 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
                         echo "</tr>";
                         $i=1;
                     }
-                    if($cronogramaRepo->verificarDispCliente($cronograma->Id_Cronograma)){
-                        echo "<td><a href='../Negocio/asisteHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";    
+                    if($cronogramaRepo->verificarDispCoach($cronograma->Id_Cronograma)){
+                        echo "<td><a href='../Negocio/trabajaHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";
                     }else{
-                        echo "<td style='background-color:grey;'><a style='pointer-events: none;' href='../Negocio/asisteHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";
+                        echo "<td style='background-color:grey;'><a style='pointer-events:none;' href='../Negocio/trabajaHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";
                     }
-                    
                     $i++;
                 }
                 ?></a>
