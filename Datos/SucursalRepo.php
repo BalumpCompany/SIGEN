@@ -16,7 +16,7 @@ class SucursalRepo{
         $lugaresMaximos = $sucursal->getLugaresMaximos();
         $logo = $sucursal->getLogo();
         $texto = $sucursal->getTextoEditable();
-        $result = $this->conexion->query("INSERT INTO sede VALUES (NULL, '$nombre', '$direccion', '$lugaresMaximos', '$logo', '$texto')"); //Inserto los datos
+        $result = $this->conexion->query("INSERT INTO sede VALUES ('$nombre', '$direccion', '$lugaresMaximos', '$logo', '$texto')"); //Inserto los datos
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }

@@ -30,20 +30,20 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     <table>
         <thead>
             <tr>
-                <th>ID sucursal</th>
+                <th>Logo</th>
                 <th>Nombre</th>
                 <th>Direccion</th>
-                <th>Logo</th>
+                <th>Lugares Maximos</th>
                 <th>Texto Editable</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($sucursales as $sucursal):?>
                 <tr>
+                    <td><?php echo "<img src='../".$sucursal->Logo."' width='80vw'>" ?></td>
                     <td><?php echo $sucursal->Nombre; ?></td>
                     <td><?php echo $sucursal->Direccion; ?></td>
                     <td><?php echo $sucursal->Lugares_Maximos; ?></td>
-                    <td><?php echo $sucursal->Logo; ?></td>
                     <td><?php echo $sucursal->Textos_Editables; ?></td>
                     <td><form action="puntuarDeportista.php" method="get">
                         <button>Modificar</button>
