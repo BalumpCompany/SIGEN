@@ -39,11 +39,17 @@ class EntrenadorRepo{
         $query=$this->conexion->query("SELECT Numero_Socio FROM asignado WHERE ID_Entrenador=$id[0]");
         $nros=[];
         $retorno=[];
-        while($nro=$query->fetch_object()){
-            $nros[]=$nro;
+        $a=[];
+        while($Nro=$query->fetch_object()){
+            if(!in_array($Nro,$nros)){
+                $nros[]=$Nro;
+            }
         }
         foreach($nros as $nro1){
-            $retorno[]=$this->conexion->query("SELECT * FROM cliente WHERE Numero_Socio=$nro1->Numero_Socio")->fetch_object();
+            $clientes=$this->conexion->query("SELECT cliente.*,asignado.Dia FROM asignado INNER JOIN cliente ON asignado.Numero_Socio=cliente.Numero_Socio WHERE asignado.Numero_Socio=$nro1->Numero_Socio AND asignado.ID_Entrenador=$id[0]")->fetch_all();
+            foreach($clientes as $cliente){
+                $retorno[]=$cliente;
+            }
         }
         $this->conexion->close();
         return $retorno;
