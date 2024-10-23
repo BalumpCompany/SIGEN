@@ -111,7 +111,14 @@ create table Rutina (
 create table Asignado (
     Numero_Socio int NOT NULL,
     ID_Entrenador int NOT NULL,
-    primary key (Numero_Socio,ID_Entrenador),
+    Dia enum(
+        'Lunes',
+        'Martes',
+        'Miercoles',
+        'Jueves',
+        'Viernes'
+    ),
+    primary key (Numero_Socio,ID_Entrenador,Dia),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
 );
