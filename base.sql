@@ -128,7 +128,7 @@ create table Califica (
     Puntaje_obtenido int NOT NULL,
     Puntaje_esperado int NOT NULL,
     fecha DATE NOT NULL,
-    primary key (Numero_Socio, ID_Calificacion),
+    primary key (Numero_Socio, ID_Calificacion, fecha),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Calificacion) references Calificacion(ID_Calificacion)
 );
@@ -191,4 +191,14 @@ CREATE TABLE EsSeleccionador(
     primary key(Username,ID_Seleccionador),
     foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador),
     foreign key (Username) references usuario(Username)
+);
+CREATE TABLE seleccionado(
+	ID_Deporte int NOT NULL,
+    Numero_Socio int NOT NULL,
+    ID_Seleccionador int NOT NULL,
+    fecha date NOT NULL,
+    primary key (Numero_Socio,ID_Deporte,ID_Seleccionador,fecha),
+    foreign key (Numero_Socio) references esDeportista(Numero_Socio),
+    foreign key (ID_Deporte) references esDeportista(ID_Deporte),
+    foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador)
 );
