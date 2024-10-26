@@ -17,7 +17,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
         <form action="../Negocio/cerrarSesion.php" method="post" onsubmit="return confirmacion()"><button id="cerrarSesion">Cerrar sesión</button></form>
     </nav>
     <div id="barraLateral">
-        <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes</p></a>
+        <a href="verClientesAdmin.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes</p></a>
         <a href="verSucursales.php?user=<?php echo $_GET["user"]; ?>"><p>Ver sucursales</p></a>
         <a href="crearSucursal.php?user=<?php echo $_GET["user"]; ?>"><p>Crear sucursales</p></a>
         <a href="verPagos.php?user=<?php echo $_GET["user"];?>"><p>Ver pagos</p></a>
