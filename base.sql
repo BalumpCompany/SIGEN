@@ -22,6 +22,7 @@ create table Cliente (
     Numero_Socio int NOT NULL auto_increment,
     Nombre varchar(30) NOT NULL,
     Apellido varchar(30) NOT NULL,
+    fecha_registro DATE NOT NULL,
     primary key (Numero_Socio)
 );
 create table Estado (
