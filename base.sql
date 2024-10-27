@@ -58,6 +58,7 @@ create table Cronograma (
     primary key (Id_Cronograma)
 );
 create table Sede (
+	ID_sede INT NOT NULL AUTO_INCREMENT,
     Nombre varchar(50) NOT NULL,
     Direccion varchar(100) NOT NULL,
     Lugares_Maximos int NOT NULL,
@@ -156,6 +157,24 @@ create table Trabaja(
     foreign key (Id_Cronograma) references Cronograma(Id_Cronograma),
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
 );
+CREATE TABLE asiste_sede(
+	ID_sede INT NOT NULL,
+    Numero_Socio INT NOT NULL,
+	fecha_ingreso DATE NOT NULL,
+    PRIMARY KEY (Numero_Socio),
+    foreign key (Numero_Socio) references Cliente(Numero_Socio),
+    foreign key (ID_sede) references Sede(ID_sede)
+);
+CREATE TABLE seleccionado(
+	ID_Deporte int NOT NULL,
+    Numero_Socio int NOT NULL,
+    ID_Seleccionador int NOT NULL,
+    fecha date NOT NULL,
+    primary key (Numero_Socio,ID_Deporte,ID_Seleccionador,fecha),
+    foreign key (Numero_Socio) references esDeportista(Numero_Socio),
+    foreign key (ID_Deporte) references esDeportista(ID_Deporte),
+    foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador)
+);
 CREATE TABLE `usuario` (
     `Username` varchar(20) NOT NULL,
     `Nombre` varchar(20) NOT NULL,
@@ -193,13 +212,4 @@ CREATE TABLE EsSeleccionador(
     foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador),
     foreign key (Username) references usuario(Username)
 );
-CREATE TABLE seleccionado(
-	ID_Deporte int NOT NULL,
-    Numero_Socio int NOT NULL,
-    ID_Seleccionador int NOT NULL,
-    fecha date NOT NULL,
-    primary key (Numero_Socio,ID_Deporte,ID_Seleccionador,fecha),
-    foreign key (Numero_Socio) references esDeportista(Numero_Socio),
-    foreign key (ID_Deporte) references esDeportista(ID_Deporte),
-    foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador)
-);
+
