@@ -23,6 +23,8 @@ create table Cliente (
     Nombre varchar(30) NOT NULL,
     Apellido varchar(30) NOT NULL,
     fecha_registro DATE NOT NULL,
+	activo BOOLEAN NOT NULL,
+	ultimo_pago DATE NOT NULL,
     primary key (Numero_Socio)
 );
 create table Estado (
@@ -137,9 +139,11 @@ create table Califica (
 create table Asiste (
     Id_Cronograma int NOT NULL,
     Numero_Socio int NOT NULL,
+	ID_sede int NOT NULL,
     primary key (Id_Cronograma, Numero_Socio),
     foreign key (Id_Cronograma) references Cronograma(Id_Cronograma),
-    foreign key (Numero_Socio) references Cliente(Numero_Socio)
+    foreign key (Numero_Socio) references asiste_sede(Numero_Socio),
+	foreign key (ID_sede) references asiste_sede(ID_sede)
 );
 create table Cambia_Estado(
     Numero_Socio int NOT NULL,
