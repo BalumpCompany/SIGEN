@@ -29,7 +29,16 @@ class EntrenadorRepo{
 
     public function trabaja($id,$user){
         $nro=$this->conexion->query("SELECT ID_Entrenador FROM esentrenador WHERE Username='$user'")->fetch_array();
-        $result=$this->conexion->query("INSERT INTO trabaja VALUES ($nro[0],$id)");
+        $idSede=$this->conexion->query("SELECT ID_Sede FROM trabaja_sede WHERE ID_Entrenador=$nro[0]")->fetch_array();
+        $result=$this->conexion->query("INSERT INTO trabaja VALUES ($nro[0],$id,$idSede[0])");
+        $this->conexion->close();
+        return $result;
+    }
+
+    public function trabaja_sede($user,$idSede){
+        $idEntrenador=$this->conexion->query("SELECT ID_Entrenador FROM esentrenador WHERE Username='$user'")->fetch_array();
+        $this->conexion->query("INSERT INTO trabaja_sede VALUES ($idEntrenador[0],$idSede);");
+        $result=$this->conexion->query("UPDATE trabaja_sede SET `ID_Entrenador`=$idEntrenador[0],`ID_Sede`=$idSede WHERE ID_Entrenador=$idEntrenador[0]");
         $this->conexion->close();
         return $result;
     }
