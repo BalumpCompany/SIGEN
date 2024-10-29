@@ -32,6 +32,7 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Cliente") {
             <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>">
                 <p id="opcionActual">Seleccionar deporte/fisioterapia</p>
             </a>
+            <a href="seleccionarSedeCliente.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
         </div>
         <div id="contenidoPrincipal">
             <h1>Elegir deporte</h1>

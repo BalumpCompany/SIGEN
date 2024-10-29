@@ -22,6 +22,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
         <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
         <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Modificar mínimos</p></a>
         <a href="seleccHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar horario</p></a>
+        <a href="seleccionarSedeCoach.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
     <h1>Elige una de las opciones</h1>
     <script src="jquery-3.7.1.min.js"></script>

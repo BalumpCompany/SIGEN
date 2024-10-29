@@ -21,6 +21,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
         <a href="verCalificaciones.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver calificaciones</p></a>
         <a href="seleccionarHorario.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar horario</p></a>
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
+        <a href="seleccionarSedeCliente.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
     <h1>Elige una de las opciones</h1>
     <script src="jquery-3.7.1.min.js"></script>

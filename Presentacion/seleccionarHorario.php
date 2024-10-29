@@ -24,6 +24,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
         <a href="verCalificaciones.php?user=<?php echo $_GET["user"]; ?>"><p>Ver calificaciones</p></a>
         <a href="seleccionarHorario.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Seleccionar horario</p></a>
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
+        <a href="seleccionarSedeCliente.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
     <div id="contenidoPrincipal">
         <table>
@@ -47,7 +48,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
                         echo "</tr>";
                         $i=1;
                     }
-                    if($cronogramaRepo->verificarDispCliente($cronograma->Id_Cronograma)){
+                    if($cronogramaRepo->verificarDispCliente($cronograma->Id_Cronograma,$_GET["user"])){
                         echo "<td><a href='../Negocio/asisteHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";    
                     }else{
                         echo "<td style='background-color:grey;'><a style='pointer-events: none;' href='../Negocio/asisteHorario.php?id=".$cronograma->Id_Cronograma."&user=".$_GET["user"]."'>".$cronograma->Inicio."-".$cronograma->Fin."</td>";
