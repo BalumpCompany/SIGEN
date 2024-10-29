@@ -24,7 +24,7 @@ create table Cliente (
     Apellido varchar(30) NOT NULL,
     fecha_registro DATE NOT NULL,
 	activo BOOLEAN NOT NULL,
-	ultimo_pago DATE NOT NULL,
+	ultimo_pago DATE,
     primary key (Numero_Socio)
 );
 create table Estado (
@@ -66,7 +66,16 @@ create table Sede (
     Lugares_Maximos int NOT NULL,
     Logo varchar(100) NOT NULL,
     Textos_Editables varchar(255) NOT NULL,
-    primary key (Nombre)
+    primary key (ID_Sede)
+);
+create table Club_Taller (
+	ID_club_taller INT NOT NULL AUTO_INCREMENT,
+    Club_Taller enum(
+        'Club',
+        'Taller'
+    ),
+    Nombre varchar(50) NOT NULL,
+    primary key (ID_club_taller)
 );
 create table Entrenador (
     ID_Entrenador int NOT NULL auto_increment,
@@ -136,6 +145,14 @@ create table Califica (
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Calificacion) references Calificacion(ID_Calificacion)
 );
+CREATE TABLE asiste_sede(
+	ID_sede INT NOT NULL,
+    Numero_Socio INT NOT NULL,
+	fecha_ingreso DATE NOT NULL,
+    PRIMARY KEY (Numero_Socio),
+    foreign key (Numero_Socio) references Cliente(Numero_Socio),
+    foreign key (ID_sede) references Sede(ID_sede)
+);
 create table Asiste (
     Id_Cronograma int NOT NULL,
     Numero_Socio int NOT NULL,
@@ -154,20 +171,21 @@ create table Cambia_Estado(
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (Id_Estado) references Estado(Id_Estado)
 );
+CREATE TABLE trabaja_sede(
+	ID_Entrenador int NOT NULL,
+    ID_Sede int NOT NULL,
+    PRIMARY KEY (ID_Entrenador),
+    FOREIGN KEY (ID_Entrenador) REFERENCES entrenador(ID_Entrenador),
+    FOREIGN KEY (ID_Sede) REFERENCES Sede(ID_Sede)
+);
 create table Trabaja(
     ID_Entrenador int NOT NULL,
     Id_Cronograma int NOT NULL,
-    primary key (Id_Cronograma),
+    ID_Sede int NOT NULL,
+    primary key (Id_Cronograma,ID_Sede),
     foreign key (Id_Cronograma) references Cronograma(Id_Cronograma),
-    foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
-);
-CREATE TABLE asiste_sede(
-	ID_sede INT NOT NULL,
-    Numero_Socio INT NOT NULL,
-	fecha_ingreso DATE NOT NULL,
-    PRIMARY KEY (Numero_Socio),
-    foreign key (Numero_Socio) references Cliente(Numero_Socio),
-    foreign key (ID_sede) references Sede(ID_sede)
+    foreign key (ID_Entrenador) references trabaja_sede(ID_Entrenador),
+    foreign key (ID_Sede) references trabaja_sede(ID_Sede)
 );
 CREATE TABLE seleccionado(
 	ID_Deporte int NOT NULL,
