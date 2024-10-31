@@ -1,6 +1,9 @@
 <?php
 session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
+    require '../Datos/ClienteRepo.php';
+    $repo = new ClienteRepo();
+    $clientes= $repo->obtenerDeportista($_GET["user"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,20 +21,30 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
     </nav>
     <div id="barraLateral">
         <a href="verEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar clientes</p></a>
-        <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Ver deportista</p></a>
-        <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Agregar clubes/talleres</p></a>
+        <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver deportista</p></a>
+        <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>"><p>Agregar clubes/talleres</p></a>
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Armar equipos</p></a>
     </div>
         <div id="contenidoPrincipal">
-            <h1>Agregar club o Taller</h1>
-            <form action="../Negocio/crearClub_Taller.php" method="post">
-            <label for="club_taller" style="font-family:Inter;">Seleccionar</label><select name="club_taller" style="width:18.5vw; font-family:Inter;">
-                    <option value="Club">Club</option>
-                    <option value="Taller">Taller</option>
-                </select><br>
-                <label for="nombre" style="font-family:Inter;">Nombre </label><input type="text" name="nombre" style="width:16.6vw; font-family:Inter;"><br>
-                <button style="width:20vw; font-family:Inter;">Crear</button>
-            </form>
+            <h1>Listado de los deportistas</h1>
+            <table>
+        <thead>
+            <tr>
+                <th>ID_Deporte</th>
+                <th>Posicion</th>
+                <th>Numero_Socio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($clientes as $cliente):?>
+                <tr>
+                    <td><strong><?php echo htmlspecialchars($cliente->ID_Deporte); ?></strong></td>
+                    <td><?php echo htmlspecialchars($cliente->Posicion); ?></td>
+                    <td><?php echo $cliente->Numero_Socio; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
         </div>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="confirmacion.js"></script>
