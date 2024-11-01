@@ -3,7 +3,7 @@ session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     require '../Datos/clienteRepo.php';
     $repo = new ClienteRepo();
-    $clientes = $repo->obtenerTodos();
+    $clientes = $repo->obtenerAsiste_sede();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,17 +30,16 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     <table>
         <thead>
             <tr>
+                <th>ID Sede</th>
                 <th>N° Socio</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($clientes as $cliente):?>
                 <tr>
-                <td><strong><?php echo htmlspecialchars($cliente->Numero_Socio); ?></strong></td>
-                            <td><?php echo htmlspecialchars($cliente->Nombre); ?></td>
-                            <td><?php echo $cliente->Apellido; ?></td>
+                <td><strong><?php echo htmlspecialchars($cliente->ID_sede); ?></strong></td>
+                <td><?php echo htmlspecialchars($cliente->Numero_Socio); ?></td>
+
                 </tr>
             <?php endforeach; ?>
         </tbody>
