@@ -57,6 +57,16 @@ class ClienteRepo
         return $result;
     }
 
+    public function obtenerAsiste_sede()
+    {
+        $resultado = $this->conexion->query("SELECT ID_sede, Numero_Socio FROM asiste_sede"); // Traigo todas las Deportista de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
+
     public function crearDeportista($user, $deporte, $posicion)
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
