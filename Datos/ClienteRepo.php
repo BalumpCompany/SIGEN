@@ -75,32 +75,12 @@ class ClienteRepo
         return $result;
     }
 
-    public function obtenerDeportista()
-    {
-        $resultado = $this->conexion->query("SELECT * FROM esdeportista"); // Traigo todas las Deportista de la base de datos
-        $retorno = []; //Arreglo auxiliar
-        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
-            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
-        }
-        return $retorno; //Devuelvo el arreglo
-    }
-
     public function crearFisioterapia($user, $lesion)
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
         $result = $this->conexion->query("INSERT INTO fisioterapia VALUES ('$lesion',$nro[0]);");
         $this->conexion->close();
         return $result;
-    }
-
-    public function obtenerUltimoPago()
-    {
-        $resultado = $this->conexion->query("SELECT Numero_Socio, ultimo_pago FROM cliente"); // Traigo todas las Deportista de la base de datos
-        $retorno = []; //Arreglo auxiliar
-        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
-            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
-        }
-        return $retorno; //Devuelvo el arreglo
     }
 
 }
