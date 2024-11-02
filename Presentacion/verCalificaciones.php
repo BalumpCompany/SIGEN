@@ -1,6 +1,10 @@
 <?php
 session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
+    require '../Datos/ClienteRepo.php';
+    $repo = new ClienteRepo();
+    $user = $_GET["user"];
+    $clientes = $repo->obtenerPuntuacion($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +27,29 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
         <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar deporte/fisioterapia</p></a>
         <a href="seleccionarSedeCliente.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
-    <h1>Elige una de las opciones</h1>
+    <div id="contenidoPrincipal">
+        <h1>Calificaciones</h1>
+            <table>
+        <thead>
+            <tr>
+                <th>ID Calificacion</th>
+                <th>Puntaje obtenido</th>
+                <th>Puntaje esperado</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($clientes as $cliente):?>
+                <tr>
+                    <td><strong><?php echo htmlspecialchars($cliente->ID_Calificacion); ?></strong></td>
+                    <td><?php echo htmlspecialchars($cliente->Puntaje_obtenido); ?></td>
+                    <td><?php echo htmlspecialchars($cliente->Puntaje_esperado); ?></td>
+                    <td><?php echo htmlspecialchars($cliente->fecha); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+        </div>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="confirmacion.js"></script>
 </body>
