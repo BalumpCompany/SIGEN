@@ -68,5 +68,14 @@ class EntrenadorRepo{
         $this->conexion->close();
         return $retorno;
     }
+
+    public function modificarRutina($nro,$dia,$ejercicios){
+        $this->conexion->query("DELETE FROM rutina WHERE dia=$dia;");
+        foreach ($ejercicios as $ejercicio){
+            $this->conexion->query("INSERT INTO rutina VALUES ($ejercicio,$nro,$dia);");
+        }
+        $this->conexion->close();
+        return;
+    }
 }
 ?>

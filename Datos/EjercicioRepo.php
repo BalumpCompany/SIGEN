@@ -45,5 +45,30 @@ class EjercicioRepo{
         }
         return $retorno; //Devuelvo el arreglo
     }
+
+    public function verificar($nro,$idEjercicio,$dia1){
+        switch($dia1){
+            case "Lunes":
+                $dia=2;
+                break;
+            case "Martes":
+                $dia=3;
+                break;
+            case "Miercoles":
+                $dia=4;
+                break;
+            case "Jueves":
+                $dia=5;
+                break;
+            case "Viernes":
+                $dia=6;
+                break;
+        }
+        $result=$this->conexion->query("SELECT * FROM rutina WHERE Numero_Socio=$nro AND ID_Ejercicio=$idEjercicio AND Dia=$dia;")->num_rows;
+        if($result>0){
+            return true;
+        }
+        return false;
+    }
 }
 ?>
