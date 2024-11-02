@@ -229,3 +229,10 @@ CREATE TABLE EsSeleccionador(
     foreign key (Username) references usuario(Username)
 );
 
+CREATE TABLE Ingresar(
+    ID_club_taller INT NOT NULL,
+    ID_Seleccionador INT NOT NULL,
+    primary key(ID_club_taller,ID_Seleccionador),
+    foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador),
+    foreign key (ID_club_taller) references Club_Taller(ID_club_taller)
+);
