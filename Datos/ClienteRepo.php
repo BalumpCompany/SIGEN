@@ -57,16 +57,6 @@ class ClienteRepo
         return $result;
     }
 
-    public function obtenerAsiste_sede()
-    {
-        $resultado = $this->conexion->query("SELECT ID_sede, Numero_Socio FROM asiste_sede");
-        $retorno = []; //Arreglo auxiliar
-        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
-            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
-        }
-        return $retorno; //Devuelvo el arreglo
-    }
-
     public function crearDeportista($user, $deporte, $posicion)
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
@@ -79,6 +69,12 @@ class ClienteRepo
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
         $result = $this->conexion->query("INSERT INTO fisioterapia VALUES ('$lesion',$nro[0]);");
+        $this->conexion->close();
+        return $result;
+    }
+
+    public function verificarPago($nro){
+        $result = $this->conexion->query("UPDATE cliente SET ultimo_pago=CURRENT_DATE WHERE Numero_Socio=$nro");
         $this->conexion->close();
         return $result;
     }
