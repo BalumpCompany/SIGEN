@@ -110,13 +110,7 @@ create table Ejercicio_Clase (
 create table Rutina (
     ID_Ejercicio int NOT NULL,
     Numero_Socio int NOT NULL,
-    Dia enum(
-        'Lunes',
-        'Martes',
-        'Miercoles',
-        'Jueves',
-        'Viernes'
-    ),
+    Dia tinyint,
     primary key (ID_Ejercicio, Numero_Socio, Dia),
     foreign key (ID_Ejercicio) references Ejercicios(ID_Ejercicio),
     foreign key (Numero_Socio) references Cliente(Numero_Socio)
