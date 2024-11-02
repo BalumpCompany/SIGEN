@@ -26,5 +26,15 @@ class SeleccionadorRepo{
         }
         return $retorno; //Devuelvo el arreglo
     }
+
+    public function obtenerDeportistas()
+    {
+        $resultado = $this->conexion->query("SELECT * FROM esdeportista INNER JOIN Deporte ON Deporte.ID_Deporte=esdeportista.ID_Deporte"); // Traigo todas las Deportista de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
 }
 ?>
