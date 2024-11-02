@@ -48,7 +48,6 @@ class EntrenadorRepo{
         $query=$this->conexion->query("SELECT Numero_Socio FROM asignado WHERE ID_Entrenador=$id[0]");
         $nros=[];
         $retorno=[];
-        $a=[];
         while($Nro=$query->fetch_object()){
             if(!in_array($Nro,$nros)){
                 $nros[]=$Nro;
