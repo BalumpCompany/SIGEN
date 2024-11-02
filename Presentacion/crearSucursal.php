@@ -28,9 +28,6 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Admin") {
             <a href="crearSucursal.php?user=<?php echo $_GET["user"]; ?>">
                 <p id="opcionActual">Crear sucursales</p>
             </a>
-            <a href="verPagos.php?user=<?php echo $_GET["user"]; ?>">
-                <p>Ver pagos</p>
-            </a>
         </div>
         <div id="contenidoPrincipal">
             <h1>Crear Sucursal</h1>

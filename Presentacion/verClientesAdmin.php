@@ -3,7 +3,7 @@ session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     require '../Datos/clienteRepo.php';
     $repo = new ClienteRepo();
-    $clientes = $repo->obtenerAsiste_sede();
+    $clientes = $repo->obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,22 +23,31 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
         <a href="verClientesAdmin.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver clientes</p></a>
         <a href="verSucursales.php?user=<?php echo $_GET["user"]; ?>"><p>Ver sucursales</p></a>
         <a href="crearSucursal.php?user=<?php echo $_GET["user"]; ?>"><p>Crear sucursales</p></a>
-        <a href="verPagos.php?user=<?php echo $_GET["user"]; ?>"><p>Ver pagos</p></a>
     </div>
     <div id="contenidoPrincipal">
     <h1>Listado de clientes</h1>
     <table>
         <thead>
             <tr>
-                <th>ID Sede</th>
                 <th>N° Socio</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de registro</th>
+                <th>Activo</th>
+                <th>Ultimo pago</th>
+                <th>Verificar pago</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($clientes as $cliente):?>
                 <tr>
-                <td><strong><?php echo htmlspecialchars($cliente->ID_sede); ?></strong></td>
-                <td><?php echo htmlspecialchars($cliente->Numero_Socio); ?></td>
+                <td><strong><?php echo htmlspecialchars($cliente->Numero_Socio); ?></strong></td>
+                <td><?php echo $cliente->Nombre; ?></td>
+                <td><?php echo $cliente->Apellido; ?></td>
+                <td><?php echo $cliente->fecha_registro; ?></td>
+                <td><?php if($cliente->activo){echo "Activo";}else{echo "No activo";} ?></td>
+                <td><?php if($cliente->ultimo_pago==NULL){echo "";}else{echo $cliente->ultimo_pago;} ?></td>
+                <td><form action="../Negocio/verificarPago.php" method="post"><input type="hidden" name="nro" value="<?php echo $cliente->Numero_Socio;?>"><input type="hidden" name="user" value="<?php echo $_GET["user"];?>"><button style="height: 2vw; background-color:#f9f8d2; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Verificar</button></form></td>
 
                 </tr>
             <?php endforeach; ?>

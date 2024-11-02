@@ -23,7 +23,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
         <a href="verClientesAdmin.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes</p></a>
         <a href="verSucursales.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver sucursales</p></a>
         <a href="crearSucursal.php?user=<?php echo $_GET["user"]; ?>"><p>Crear sucursales</p></a>
-        <a href="verPagos.php?user=<?php echo $_GET["user"]; ?>"><p>Ver pagos</p></a>
+        
     </div>
     <div id="contenidoPrincipal">
     <h1>Listado de sucursales</h1>
