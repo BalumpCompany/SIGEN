@@ -19,25 +19,33 @@ class CronogramaRepo{
         return $retorno; //Devuelvo el arreglo
     }
 
-    public function verificarDispCliente($id,$user){
+    public function verificarDispCliente($id, $user)
+    {
         $idSede = $this->conexion->query("SELECT ID_sede FROM asiste_sede INNER JOIN escliente ON asiste_sede.Numero_Socio=escliente.Numero_Socio WHERE Username='$user'")->fetch_array();
-        $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id")->num_rows;
-        $asiste = $this->conexion->query("SELECT * FROM asiste WHERE Id_Cronograma=$id")->num_rows;
-        $cantidad = $this->conexion->query("SELECT * FROM asiste WHERE ID_Cronograma=$id AND Id_sede=$idSede")->num_rows;
-        $cantidadMax = $this->conexion->query("SELECT Lugares_Maximos FROM Sede WHERE ID_sede=$idSede")->fetch_array();
-        if($trabaja<1 || $asiste>=6 || $cantidad>=$cantidadMax[0]){
-            return false;
+        if ($idSede) {
+            $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id")->num_rows;
+            $asiste = $this->conexion->query("SELECT * FROM asiste WHERE Id_Cronograma=$id")->num_rows;
+            $cantidad = $this->conexion->query("SELECT * FROM asiste WHERE ID_Cronograma=$id AND Id_sede=$idSede[0]")->num_rows;
+            $cantidadMax = $this->conexion->query("SELECT Lugares_Maximos FROM Sede WHERE ID_sede=$idSede[0]")->fetch_array();
+            if ($trabaja < 1 || $asiste >= 6 || $cantidad >= $cantidadMax[0]) {
+                return false;
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
-    public function verificarDispCoach($id,$user){
+    public function verificarDispCoach($id, $user)
+    {
         $idSede = $this->conexion->query("SELECT ID_sede FROM trabaja_sede INNER JOIN esentrenador ON trabaja_sede.ID_Entrenador=esentrenador.ID_Entrenador WHERE Username='$user'")->fetch_array();
-        $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id AND ID_Sede=$idSede[0]")->num_rows;
-        if($trabaja>0){
-            return false;
+        if ($idSede) {
+            $trabaja = $this->conexion->query("SELECT * FROM trabaja WHERE Id_Cronograma=$id AND ID_Sede=$idSede[0]")->num_rows;
+            if ($trabaja > 0) {
+                return false;
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 }
 ?>
