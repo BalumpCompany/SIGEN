@@ -35,12 +35,12 @@ class ClienteRepo
     public function asiste($id, $user)
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
-        $nro = $this->conexion->query("SELECT ID_Entrenador FROM trabaja WHERE ID_Cronograma=$id")->fetch_array();
-        $idSede = $this->conexion->query("SELECT ID_sede FROM asiste_sede WHERE Numero_Socio=$nro")->fetch_array();
-        $dia = $this->conexion->query("SELECT Dia FROM cronograma WHERE Id_Cronograma='$id'")->fetch_array();
+        $idEntrenador = $this->conexion->query("SELECT ID_Entrenador FROM trabaja WHERE ID_Cronograma=$id")->fetch_array();
+        $idSede = $this->conexion->query("SELECT ID_sede FROM asiste_sede WHERE Numero_Socio=$nro[0]")->fetch_array();
+        $dia = $this->conexion->query("SELECT Dia FROM cronograma WHERE Id_Cronograma=$id")->fetch_array();
         $dias = $this->conexion->query("SELECT Dia FROM Cronograma INNER JOIN asiste ON Cronograma.Id_Cronograma = asiste.Id_Cronograma WHERE asiste.Numero_Socio=$nro[0] AND cronograma.Dia='$dia[0]'")->num_rows;
         if ($dias > 0) {
-            $result = $this->conexion->multi_query("DELETE asiste FROM asiste INNER JOIN cronograma ON asiste.Id_Cronograma=cronograma.Id_Cronograma WHERE Numero_Socio=$nro[0] AND cronograma.Dia='$dia[0]'; UPDATE asignado SET Id_Entrenador=$nro[0], Numero_Socio=$nro[0] WHERE Numero_Socio=$nro[0]; INSERT INTO asiste VALUES ($id,$nro[0],$idSede[0]);");
+            $result = $this->conexion->multi_query("DELETE asiste FROM asiste INNER JOIN cronograma ON asiste.Id_Cronograma=cronograma.Id_Cronograma WHERE Numero_Socio=$nro[0] AND cronograma.Dia='$dia[0]'; UPDATE asignado SET Id_Entrenador=$idEntrenador[0], Numero_Socio=$nro[0] WHERE Numero_Socio=$nro[0]; INSERT INTO asiste VALUES ($id,$nro[0],$idSede[0]);");
             $this->conexion->close();
             return $result;
         }
