@@ -10,7 +10,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Sucursales - <?php echo $_GET["user"]; ?></title>
+    <title>Ver Sucursales  - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleVerEjercicios.css">
     <link rel="icon" href="recursos/icono.png">
 </head>

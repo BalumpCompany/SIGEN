@@ -36,7 +36,7 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Admin") {
         </div>
         <div id="contenidoPrincipal">
             <h1>Modificar Sede - <?php echo $sucursal->Nombre; ?></h1>
-            <form action="../Negocio/modificarSede.php" method="post">
+            <form action="../Negocio/modificarSede.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="user" value="<?php echo $_GET["user"]; ?>">
                 <input type="hidden" name="idSede" value="<?php echo $sucursal->ID_sede; ?>">
                 <label for="nombre" style="font-family:Inter; font-size:0.83vw;">Nombre de sucursal </label><input type="text" name="nombre"

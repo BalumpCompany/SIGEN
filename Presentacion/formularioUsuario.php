@@ -42,7 +42,6 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
             <label for="nombre" style="font-family:Inter;">Nombre </label><input type="text" name="nombre" value="<?php echo $usuario->Nombre; ?>" style="width:16.6vw; font-family:Inter;"><br>
             <label for="apellido" style="font-family:Inter;">Apellido </label><input type="text" name="apellido" value="<?php echo $usuario->Apellido; ?>" style="width:16.55vw; font-family:Inter;"><br>
             <label for="mail" style="font-family:Inter;">E-Mail </label><input type="text" name="mail" value="<?php echo $usuario->Email; ?>" style="width:17.25vw; font-family:Inter;"><br>
-            <label for="contrasena" style="font-family:Inter;">Contraseña </label><input type="pass" name="contrasena" value="<?php echo $usuario->Contrasena; ?>" style="width:15.2vw; font-family:Inter;"><br>
             <label for="rol" style="font-family:Inter;">Rol </label><select name="rol" value="<?php echo $usuario->Rol; ?>" style="width:18.5vw; font-family:Inter;">
                     <option value="Cliente">Cliente</option>
                     <option value="Coach">Entrenador</option>

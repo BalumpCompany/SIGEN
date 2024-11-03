@@ -64,6 +64,7 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
                             </td>
                             <td>
                                 <form action="../Negocio/eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>" method="post">
+                                    <input type="hidden" name="rol" value="<?php echo $usuario->Rol; ?>">
                                     <input type="hidden" name="username" value="<?php echo $usuario->Username; ?>">
                                     <button style="height: 3vw; background-color:white; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Eliminar</button>
                                 </form>
