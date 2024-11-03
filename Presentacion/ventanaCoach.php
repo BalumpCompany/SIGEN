@@ -7,7 +7,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
+    <title>Ventana Entrenador - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleCliente.css">
     <link rel="icon" href="recursos/icono.png">
 </head>
@@ -17,7 +17,6 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
         <form action="../Negocio/cerrarSesion.php" method="post" onsubmit="return confirmacion()"><button id="cerrarSesion">Cerrar sesión</button></form>
     </nav>
     <div id="barraLateral">
-        <a href="modificarRutina.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar rutina</p></a>
         <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes asignados</p></a>
         <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
         <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>

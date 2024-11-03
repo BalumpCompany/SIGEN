@@ -11,7 +11,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente" && $_SESSION["esta
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver ejercicios - <?php echo $_GET["user"]; ?></title>
+    <title>Ver Calificaciones - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleVerEjercicios.css">
     <link rel="icon" href="recursos/icono.png">
 </head>

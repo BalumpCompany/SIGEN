@@ -7,7 +7,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Avanzado"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
+    <title>Ventana Avanzado - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleCliente.css">
     <link rel="icon" href="recursos/icono.png">
 </head>
@@ -19,8 +19,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Avanzado"){
     <div id="barraLateral">
         <a href="modificarEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar ejercicios</p></a>
         <a href="crearUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Crear usuario</p></a>
-        <a href="modificarUsuarios.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar usuario</p></a>
-        <a href="eliminarUsuario.php?user=<?php echo $_GET["user"]; ?>"><p>Eliminar usuario</p></a>
+        <a href="listaUsuarios.php?user=<?php echo $_GET["user"]; ?>"><p>Listado usuarios</p></a>
     </div>
     <h1>Elige una de las opciones</h1>
     <script src="jquery-3.7.1.min.js"></script>

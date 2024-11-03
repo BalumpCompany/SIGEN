@@ -10,7 +10,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
+    <title>Ver Sucursales - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleVerEjercicios.css">
     <link rel="icon" href="recursos/icono.png">
 </head>
@@ -30,23 +30,28 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Logo</th>
                 <th>Nombre</th>
                 <th>Direccion</th>
                 <th>Lugares Maximos</th>
                 <th>Texto Editable</th>
+                <th>Opción</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($sucursales as $sucursal):?>
                 <tr>
-                    <td><?php echo "<img src='../".$sucursal->Logo."' width='80vw'>" ?></td>
+                    <td><?php echo $sucursal->ID_sede; ?></td>
+                    <td><?php echo "<img src='../".$sucursal->Logo."' style='width:6vw;'" ?></td>
                     <td><?php echo $sucursal->Nombre; ?></td>
                     <td><?php echo $sucursal->Direccion; ?></td>
                     <td><?php echo $sucursal->Lugares_Maximos; ?></td>
                     <td><?php echo $sucursal->Textos_Editables; ?></td>
-                    <td><form action="puntuarDeportista.php" method="get">
-                        <button>Modificar</button>
+                    <td><form action="formularioModificarSede.php?" method="get">
+                        <input type="hidden" name="user" value="<?php echo $_GET["user"]; ?>">
+                        <input type="hidden" name="idSede" value="<?php echo $sucursal->ID_sede; ?>">
+                        <button style="height: 2vw; background-color:#f9f8d2; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Modificar</button>
                     </form></td>
                 </tr>
             <?php endforeach; ?>

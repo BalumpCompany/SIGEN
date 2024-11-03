@@ -1,16 +1,16 @@
 <?php
 session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
-    require '../Datos/ClienteRepo.php';
-    $repo = new ClienteRepo();
-    $clientes= $repo->obtenerDeportista($_GET["user"]);
+    require '../Datos/SeleccionadorRepo.php';
+    $repo = new SeleccionadorRepo();
+    $clientes= $repo->obtenerDeportistas();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
+    <title>Ver Deportistas - <?php echo $_GET["user"]; ?></title>
     <link rel="stylesheet" href="styleverejercicios.css">
     <link rel="icon" href="recursos/icono.png">
 </head>

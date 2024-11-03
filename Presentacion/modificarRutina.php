@@ -11,7 +11,7 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Coach") {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pantalla principal - <?php echo $_GET["user"]; ?></title>
+        <title>Modificar Rutina - <?php echo $_GET["user"]; ?></title>
         <link rel="stylesheet" href="styleVerEjercicios.css">
         <link rel="icon" href="recursos/icono.png">
     </head>
@@ -23,9 +23,6 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Coach") {
                     id="cerrarSesion">Cerrar sesión</button></form>
         </nav>
         <div id="barraLateral">
-            <a href="modificarRutina.php?user=<?php echo $_GET["user"]; ?>">
-                <p id="opcionActual">Modificar rutina</p>
-            </a>
             <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>">
                 <p>Ver clientes asignados</p>
             </a>
