@@ -24,8 +24,6 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
     </nav>
     <div id="barraLateral">
         <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes asignados</p></a>
-        <a href="agruparEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Agrupar ejercicios</p></a>
-        <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
         <a href="seleccionarHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Seleccionar horario</p></a>
         <a href="seleccionarSedeCoach.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
