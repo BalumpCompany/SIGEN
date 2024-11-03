@@ -4,7 +4,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente" && $_SESSION["esta
     require '../Datos/ClienteRepo.php';
     $repo = new ClienteRepo();
     $user = $_GET["user"];
-    $clientes = $repo->obtenerPuntuacion($user);
+    $puntuaciones = $repo->obtenerPuntuacion($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,18 +33,20 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente" && $_SESSION["esta
         <thead>
             <tr>
                 <th>ID Calificacion</th>
+                <th>Nombre</th>
                 <th>Puntaje obtenido</th>
                 <th>Puntaje esperado</th>
                 <th>Fecha</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($clientes as $cliente):?>
+            <?php foreach ($puntuaciones as $puntuacion):?>
                 <tr>
-                    <td><strong><?php echo htmlspecialchars($cliente->ID_Calificacion); ?></strong></td>
-                    <td><?php echo htmlspecialchars($cliente->Puntaje_obtenido); ?></td>
-                    <td><?php echo htmlspecialchars($cliente->Puntaje_esperado); ?></td>
-                    <td><?php echo htmlspecialchars($cliente->fecha); ?></td>
+                    <td><strong><?php echo htmlspecialchars($puntuacion->ID_Calificacion); ?></strong></td>
+                    <td><?php echo $puntuacion->Item; ?></td>
+                    <td><?php echo htmlspecialchars($puntuacion->Puntaje_obtenido); ?></td>
+                    <td><?php echo htmlspecialchars($puntuacion->Puntaje_esperado); ?></td>
+                    <td><?php echo htmlspecialchars($puntuacion->fecha); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
