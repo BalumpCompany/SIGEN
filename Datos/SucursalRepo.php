@@ -16,7 +16,7 @@ class SucursalRepo{
         $lugaresMaximos = $sucursal->getLugaresMaximos();
         $logo = $sucursal->getLogo();
         $texto = $sucursal->getTextoEditable();
-        $result = $this->conexion->query("INSERT INTO sede VALUES (NULL, '$nombre', '$direccion', '$lugaresMaximos', '$logo', '$texto')"); //Inserto los datos
+        $result = $this->conexion->query("INSERT INTO sede VALUES (NULL, '$nombre', '$direccion', $lugaresMaximos, '$logo', '$texto')"); //Inserto los datos
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
@@ -28,6 +28,22 @@ class SucursalRepo{
             $retorno[] = $Sede; //Agrego los objetos al arreglo auxiliar
         }
         return $retorno; //Devuelvo el arreglo
+    }
+
+    public function obtener($idSede){
+        $retorno=$this->conexion->query("SELECT * FROM sede WHERE ID_sede=$idSede;")->fetch_object();
+        return $retorno;
+    }
+
+    public function modificar(Sucursal $sucursal,$idSede){
+        $nombre = $sucursal->getNombre();
+        $direccion = $sucursal->getDireccion();
+        $lugaresMaximos = $sucursal->getLugaresMaximos();
+        $logo = $sucursal->getLogo();
+        $texto = $sucursal->getTextoEditable();
+        $result = $this->conexion->query("UPDATE sede SET Nombre='$nombre', Direccion='$direccion', Lugares_Maximos=$lugaresMaximos, Logo='$logo', Textos_Editables='$texto' WHERE ID_sede=$idSede;"); //Inserto los datos
+        $this->conexion->close(); //Luego de insertado cierro la conexión
+        return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
 }
 ?>

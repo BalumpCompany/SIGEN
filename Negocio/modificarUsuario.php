@@ -14,6 +14,6 @@ $usuario = new Usuario($username, $nombre, $apellido, $mail, $contrasena, $rol);
 $repo = new UsuarioRepo();
 $repo->modificar($usuario);
 
-header("Location: ../Presentacion/modificarUsuarios.php?user=".$_POST["user"]);
+header("Location: ../Presentacion/listaUsuarios.php?user=".$_POST["user"]);
 exit();
 ?>
