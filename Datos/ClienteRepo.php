@@ -108,7 +108,7 @@ class ClienteRepo
     {
         $numero = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
         $numeroSocio = $numero['Numero_Socio'];
-        $resultado = $this->conexion->query("SELECT * FROM califica WHERE Numero_Socio=$numeroSocio"); // Traigo todas las Puntuaciones de la base de datos
+        $resultado = $this->conexion->query("SELECT * FROM califica INNER JOIN calificacion ON califica.ID_Calificacion=calificacion.ID_Calificacion WHERE Numero_Socio=$numeroSocio"); // Traigo todas las Puntuaciones de la base de datos
         $retorno = []; //Arreglo auxiliar
         while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
             $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
