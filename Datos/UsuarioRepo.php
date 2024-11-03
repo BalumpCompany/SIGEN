@@ -29,14 +29,14 @@ class UsuarioRepo{
         $mail = $Usuario->getMail();
         $contrasena = $Usuario->getContrasena();
         $rol = $Usuario->getRol();
-        $result = $this->conexion->query("UPDATE usuario SET Username='$username', Nombre='$nombre', Apellido='$apellido', Email='$mail', Contrasena='$contrasena', Rol='$rol' WHERE Username='$username'");
+        $result = $this->conexion->query("UPDATE usuario SET Username='$username', Nombre='$nombre', Apellido='$apellido', Email='$mail', Rol='$rol' WHERE Username='$username'");
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
     public function eliminar($username){
-        $result = $this->conexion->query("DELETE FROM esentrenador WHERE Username='$username'");
-        $result = $this->conexion->query("DELETE FROM escliente WHERE Username='$username'");
-        $result = $this->conexion->query("DELETE FROM esSeleccionador WHERE Username='$username'");
+        $result = $this->conexion->query("DELETE esentrenador,entrenador FROM esentrenador INNER JOIN entrenador ON entrenador.ID_Entrenador=esentrenador.ID_Entrenador WHERE Username='$username'");
+        $result = $this->conexion->query("DELETE escliente,cliente FROM escliente INNER JOIN cliente ON cliente.Numero_Socio=escliente.Numero_Socio WHERE Username='$username'");
+        $result = $this->conexion->query("DELETE esSeleccionador,seleccionador FROM esSeleccionador INNER JOIN seleccionador ON seleccionador.ID_seleccionador=esSeleccionador.ID_Seleccionador WHERE Username='$username'");
         $result = $this->conexion->query("DELETE FROM usuario WHERE Username='$username'");
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
