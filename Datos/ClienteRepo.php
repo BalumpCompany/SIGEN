@@ -32,6 +32,15 @@ class ClienteRepo
         return $retorno; //Devuelvo el arreglo
     }
 
+    public function obtener($user){
+        $resultado = $this->conexion->query("SELECT * FROM cliente INNER JOIN escliente ON escliente.Numero_Socio=cliente.Numero_Socio WHERE Username='$user'"); // Traigo todas las Clientes de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
+
     public function asiste($id, $user)
     {
         $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
@@ -50,10 +59,11 @@ class ClienteRepo
         return $result;
     }
 
-    public function asiste_sede($user,$idSede){
-        $nro=$this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
+    public function asiste_sede($user, $idSede)
+    {
+        $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
         $this->conexion->query("INSERT INTO asiste_sede VALUES ($idSede,$nro[0],CURRENT_DATE);");
-        $result=$this->conexion->query("UPDATE asiste_sede SET `Numero_Socio`=$nro[0],`ID_Sede`=$idSede,fecha_ingreso=CURRENT_DATE WHERE Numero_Socio=$nro[0]");
+        $result = $this->conexion->query("UPDATE asiste_sede SET `Numero_Socio`=$nro[0],`ID_Sede`=$idSede,fecha_ingreso=CURRENT_DATE WHERE Numero_Socio=$nro[0]");
         $this->conexion->close();
         return $result;
     }
@@ -74,8 +84,22 @@ class ClienteRepo
         return $result;
     }
 
-    public function verificarPago($nro){
+    public function verificarPago($nro)
+    {
         $result = $this->conexion->query("UPDATE cliente SET ultimo_pago=CURRENT_DATE WHERE Numero_Socio=$nro");
+        $this->conexion->close();
+        return $result;
+    }
+
+    public function activarDesactivar($nro)
+    {
+        $cliente = $this->conexion->query("SELECT * FROM cliente WHERE Numero_Socio=$nro")->fetch_object();
+        if ($cliente->activo == 1) {
+            $result = $this->conexion->query("UPDATE cliente SET activo=0 WHERE Numero_Socio=$nro");
+            $this->conexion->close();
+            return $result;
+        }
+        $result = $this->conexion->query("UPDATE cliente SET activo=1 WHERE Numero_Socio=$nro");
         $this->conexion->close();
         return $result;
     }
@@ -83,11 +107,33 @@ class ClienteRepo
     public function obtenerPuntuacion($user)
     {
         $numero = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
-        $numeroSocio = $numero['Numero_Socio']; 
+        $numeroSocio = $numero['Numero_Socio'];
         $resultado = $this->conexion->query("SELECT * FROM califica WHERE Numero_Socio=$numeroSocio"); // Traigo todas las Puntuaciones de la base de datos
         $retorno = []; //Arreglo auxiliar
         while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
             $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
+
+    public function obtenerRutina($user)
+    {
+        $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
+        $resultado = $this->conexion->query("SELECT * FROM rutina INNER JOIN ejercicios ON ejercicios.ID_Ejercicio=rutina.ID_Ejercicio WHERE Numero_Socio=$nro[0] AND Dia=DAYOFWEEK(CURRENT_DATE);"); // Traigo todas las Ejercicios de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($ejercicio = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $ejercicio; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
+
+    public function obtenerRutinaNombre($user, $nombre)
+    {
+        $nro = $this->conexion->query("SELECT Numero_Socio FROM escliente WHERE Username='$user'")->fetch_array();
+        $resultado = $this->conexion->query("SELECT * FROM rutina INNER JOIN ejercicios ON ejercicios.ID_Ejercicio=rutina.ID_Ejercicio WHERE Numero_Socio=$nro[0] AND Dia=DAYOFWEEK(CURRENT_DATE) AND Nombre LIKE'%$nombre%';"); // Traigo todas las Ejercicios de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($ejercicio = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $ejercicio; //Agrego los objetos al arreglo auxiliar
         }
         return $retorno; //Devuelvo el arreglo
     }

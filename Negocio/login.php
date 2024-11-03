@@ -10,6 +10,12 @@ if (password_verify($_POST["pass"], $usuario->Contrasena)) {
     $_SESSION["logueado"] = true;
     $_SESSION["user"] = $_POST["user"];
     $_SESSION["rol"] = $usuario->Rol;
+    if($usuario->Rol=="Cliente"){
+        require '../Datos/ClienteRepo.php';
+        $repoCliente=new ClienteRepo();
+        $cliente=$repoCliente->obtener($_POST["user"]);
+        $_SESSION["estado"]=$cliente[0]->activo;
+    }
 } else {
     header("Location: ../Presentacion/login.html");
 }
