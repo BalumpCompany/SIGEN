@@ -1,7 +1,7 @@
 <?php
 require '../Datos/CronogramaRepo.php';
 session_start();
-if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente" && $_SESSION["estado"]==1){
     $cronogramaRepo=new CronogramaRepo();
     $cronogramas=$cronogramaRepo->obtenerTodos();
 ?>

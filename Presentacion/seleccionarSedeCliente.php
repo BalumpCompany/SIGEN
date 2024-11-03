@@ -1,7 +1,7 @@
 <?php
 require '../Datos/SucursalRepo.php';
 session_start();
-if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente"){
+if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Cliente" && $_SESSION["estado"]==1){
     $sucursalRepo=new SucursalRepo();
     $sucursales=$sucursalRepo->obtenerTodos();
 ?>

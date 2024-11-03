@@ -44,6 +44,8 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Avanzado") {
         </div>
         <div id="contenidoPrincipal">
             <h1>Lista de Ejercicios</h1>
+            <form action="" method="post"><input type="text" name="nombre" required
+                    style="width: 26.3vw; height: 2vw;"><button style="height: 2vw;">🔍︎Buscar</button></form>
             <table>
                 <thead>
                     <tr>

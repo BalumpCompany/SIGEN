@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Cliente") {
+if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Cliente" && $_SESSION["estado"]==1) {
     ?>
     <!DOCTYPE html>
     <html lang="en">

@@ -36,6 +36,7 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
                 <th>Activo</th>
                 <th>Ultimo pago</th>
                 <th>Verificar pago</th>
+                <th>Activar/Desactivar</th>
             </tr>
         </thead>
         <tbody>
@@ -45,9 +46,10 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Admin"){
                 <td><?php echo $cliente->Nombre; ?></td>
                 <td><?php echo $cliente->Apellido; ?></td>
                 <td><?php echo $cliente->fecha_registro; ?></td>
-                <td><?php if($cliente->activo){echo "Activo";}else{echo "No activo";} ?></td>
+                <td><?php if($cliente->activo){echo "Activo"; $opcion="Desactivar";}else{echo "No activo"; $opcion="Activar";} ?></td>
                 <td><?php if($cliente->ultimo_pago==NULL){echo "";}else{echo $cliente->ultimo_pago;} ?></td>
                 <td><form action="../Negocio/verificarPago.php" method="post"><input type="hidden" name="nro" value="<?php echo $cliente->Numero_Socio;?>"><input type="hidden" name="user" value="<?php echo $_GET["user"];?>"><button style="height: 2vw; background-color:#f9f8d2; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Verificar</button></form></td>
+                <td><form action="../Negocio/activarDesactivar.php" method="post"><input type="hidden" name="nro" value="<?php echo $cliente->Numero_Socio;?>"><input type="hidden" name="user" value="<?php echo $_GET["user"];?>"><button style="height: 2vw; background-color:#f9f8d2; border:none; border-radius:10px; font-family:Inter; font-size:1vw;"><?php echo $opcion; ?></button></form></td>
 
                 </tr>
             <?php endforeach; ?>

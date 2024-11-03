@@ -1,13 +1,13 @@
 <?php
 session_start();
-if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Cliente") {
-    require '../Datos/Ejercicio.php';
-    require '../Datos/EjercicioRepo.php';
-    $repo = new EjercicioRepo();
+if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Cliente" && $_SESSION["estado"]==1) {
+    require '../Datos/Cliente.php';
+    require '../Datos/ClienteRepo.php';
+    $repo = new ClienteRepo();
     if (isset($_POST["nombre"])) {
-        $ejercicios = $repo->obtener($_POST["nombre"]);
+        $ejercicios = $repo->obtenerRutinaNombre($_GET["user"], $_POST["nombre"]);
     } else {
-        $ejercicios = $repo->obtenerTodos();
+        $ejercicios = $repo->obtenerRutina($_GET["user"]);
     }
     ?>
 
