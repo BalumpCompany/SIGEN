@@ -68,5 +68,14 @@ class SeleccionadorRepo{
         }
         return;
     }
+
+    public function obtenerEquipos(){
+        $resultado = $this->conexion->query("SELECT Club_Taller.Nombre as nombreT, Club_Taller.*, cliente.*,esdeportista.*,deporte.Nombre as nombreD FROM formaparte INNER JOIN Club_Taller ON formaparte.ID_club_taller=Club_Taller.ID_club_taller INNER JOIN cliente ON cliente.Numero_Socio=formaparte.Numero_Socio INNER JOIN esdeportista ON formaparte.Numero_Socio=esdeportista.Numero_Socio INNER JOIN deporte ON esdeportista.ID_Deporte=deporte.ID_Deporte ORDER BY ID_club_taller ASC;"); // Traigo todas las Deportista de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while ($Cliente = $resultado->fetch_object()) { //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Cliente; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
 }
 ?>
