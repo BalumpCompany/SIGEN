@@ -1,9 +1,9 @@
 <?php
 session_start();
 if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
-    require '../Datos/SeleccionadorRepo.php';
-    $repo = new SeleccionadorRepo();
-    $clientes= $repo->obtenerDeportistas();
+    require '../Datos/Club_TallerRepo.php';
+    $repo = new Club_TallerRepo();
+    $talleres= $repo->obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,30 +21,32 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
     </nav>
     <div id="barraLateral">
         <a href="seleccionarClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar clientes</p></a>
-        <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Ver deportista</p></a>
+        <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Ver deportista</p></a>
         <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>"><p>Agregar clubes/talleres</p></a>
-        <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>"><p>Armar equipos</p></a>
+        <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Armar equipos</p></a>
     </div>
         <div id="contenidoPrincipal">
-            <h1>Listado de los deportistas</h1>
+            <h1>Listado de los clubes/talleres</h1>
             <table>
         <thead>
             <tr>
-                <th>Deporte</th>
-                <th>Posicion</th>
-                <th>Numero_Socio</th>
+                <th>ID taller</th>
+                <th>Club / Taller</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Opción</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($clientes as $cliente):?>
-                <tr>
-                    <td><strong><?php echo htmlspecialchars($cliente->nombreD); ?></strong></td>
-                    <td><?php echo htmlspecialchars($cliente->Posicion); ?></td>
-                    <td><strong><?php echo $cliente->Numero_Socio; ?></strong></td>
-                    <td><?php echo $cliente->Nombre; ?></td>
-                    <td><?php echo $cliente->Apellido; ?></td>
+            <?php foreach ($talleres as $taller):?>
+                    <td><strong><?php echo htmlspecialchars($taller->ID_club_taller); ?></strong></td>
+                    <td><?php echo htmlspecialchars($taller->Club_Taller); ?></td>
+                    <td><?php echo htmlspecialchars($taller->Nombre); ?></td>
+                    <td><form action="formularioEquipo.php" method="get">
+                        <input type="hidden" name="id" value="<?php echo $taller->ID_club_taller;?>">
+                        <input type="hidden" name="nombre" value="<?php echo $taller->Nombre;?>">
+                        <input type="hidden" name="user" value="<?php echo $_GET["user"];?>">
+                        <button style="height: 2vw; background-color:#f9f8d2; border:none; border-radius:10px; font-family:Inter; font-size:1vw;">Armar</button>
+                    </form></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

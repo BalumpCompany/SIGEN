@@ -131,14 +131,14 @@ text-decoration: overline;
     width: 100vw;
     height: 40vw;
     justify-content: left;
-    justify-items: center;
+    justify-items: left;
     align-items: center;
 }
 
 #aboutTitulo {
     font-size: 1.8vw;
     font-weight: bold;
-    margin-left: 2vw;
+    margin-left: 4vw;
     color: #f9e8b2;
     position: relative;
     top: 30%;

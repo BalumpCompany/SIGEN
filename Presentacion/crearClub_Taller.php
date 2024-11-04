@@ -17,10 +17,10 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
         <form action="../Negocio/cerrarSesion.php" method="post" onsubmit="return confirmacion()"><button id="cerrarSesion">Cerrar sesión</button></form>
     </nav>
     <div id="barraLateral">
-        <a href="verEjercicios.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar clientes</p></a>
+        <a href="seleccionarClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar clientes</p></a>
         <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Ver deportista</p></a>
         <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Agregar clubes/talleres</p></a>
-        <a href="seleccionarDepFis.php?user=<?php echo $_GET["user"]; ?>"><p>Armar equipos</p></a>
+        <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>"><p>Armar equipos</p></a>
     </div>
         <div id="contenidoPrincipal">
             <h1>Agregar club o Taller</h1>

@@ -191,6 +191,13 @@ CREATE TABLE seleccionado(
     foreign key (ID_Deporte) references esDeportista(ID_Deporte),
     foreign key (ID_Seleccionador) references Seleccionador(ID_Seleccionador)
 );
+create TABLE formaParte(
+	Numero_Socio INT NOT NULL,
+    ID_club_taller INT NOT NULL,
+    PRIMARY KEY (Numero_Socio),
+    FOREIGN KEY (Numero_Socio) REFERENCES seleccionado(Numero_Socio),
+    FOREIGN KEY (ID_club_taller) REFERENCES club_taller(ID_club_taller)
+);
 CREATE TABLE `usuario` (
     `Username` varchar(20) NOT NULL,
     `Nombre` varchar(20) NOT NULL,
