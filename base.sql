@@ -125,7 +125,7 @@ create table Asignado (
         'Jueves',
         'Viernes'
     ),
-    primary key (Numero_Socio,Dia),
+    primary key (Numero_Socio, ID_Entrenador, Dia),
     foreign key (Numero_Socio) references Cliente(Numero_Socio),
     foreign key (ID_Entrenador) references Entrenador(ID_Entrenador)
 );
