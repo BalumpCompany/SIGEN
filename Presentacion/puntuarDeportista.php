@@ -18,8 +18,8 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Coach"){
     </nav>
     <div id="barraLateral">
         <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>"><p>Ver clientes asignados</p></a>
-        <a href="modificarMinimos.php?user=<?php echo $_GET["user"]; ?>"><p>Modificar mínimos</p></a>
         <a href="seleccHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar horario</p></a>
+        <a href="seleccionarSedeCoach.php?user=<?php echo $_GET["user"]; ?>"><p>Seleccionar sede</p></a>
     </div>
     <div id="contenidoPrincipal">
         <h1>Puntuación deportista (<?php echo $_GET["nombre"];?>)</h1>

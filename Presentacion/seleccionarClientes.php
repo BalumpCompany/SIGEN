@@ -35,6 +35,9 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Seleccionador") {
             <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>">
                 <p>Armar equipos</p>
             </a>
+            <a href="verEquipos.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Ver equipos</p>
+            </a>
         </div>
         <div id="contenidoPrincipal">
             <h1>Seleccionar clientes</h1>

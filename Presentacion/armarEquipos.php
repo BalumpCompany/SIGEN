@@ -24,6 +24,9 @@ if($_SESSION["logueado"]==true && $_SESSION["rol"]=="Seleccionador"){
         <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>"><p>Ver deportista</p></a>
         <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>"><p>Agregar clubes/talleres</p></a>
         <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>"><p id="opcionActual">Armar equipos</p></a>
+        <a href="verEquipos.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Ver equipos</p>
+            </a>
     </div>
         <div id="contenidoPrincipal">
             <h1>Listado de los clubes/talleres</h1>

@@ -23,14 +23,20 @@ if ($_SESSION["logueado"] == true && $_SESSION["rol"] == "Seleccionador") {
                     id="cerrarSesion">Cerrar sesión</button></form>
         </nav>
         <div id="barraLateral">
-            <a href="verClientes.php?user=<?php echo $_GET["user"]; ?>">
-                <p>Ver clientes asignados</p>
+            <a href="seleccionarClientes.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Seleccionar clientes</p>
             </a>
-            <a href="seleccHorarioTrabajo.php?user=<?php echo $_GET["user"]; ?>">
-                <p>Seleccionar horario</p>
+            <a href="verDeportista.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Ver deportista</p>
             </a>
-            <a href="seleccionarSedeCoach.php?user=<?php echo $_GET["user"]; ?>">
-                <p>Seleccionar sede</p>
+            <a href="crearClub_Taller.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Agregar clubes/talleres</p>
+            </a>
+            <a href="armarEquipos.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Armar equipos</p>
+            </a>
+            <a href="verEquipos.php?user=<?php echo $_GET["user"]; ?>">
+                <p>Ver equipos</p>
             </a>
         </div>
         <div id="contenidoPrincipal">
