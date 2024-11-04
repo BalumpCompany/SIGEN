@@ -17,5 +17,14 @@ class Club_TallerRepo{
         $this->conexion->close(); //Luego de insertado cierro la conexión
         return $result; //Devuelvo el resultado. En caso que sean ingresados los datos con éxito devuelve true. Caso contrario devuelve false.
     }
+
+    public function obtenerTodos() {
+        $resultado = $this->conexion->query("SELECT * FROM club_taller"); // Traigo todas las Cronogramas de la base de datos
+        $retorno = []; //Arreglo auxiliar
+        while($Cronograma = $resultado->fetch_object()){ //Voy convirtiendo, uno por uno, los resultados en objetos de la clase stdClass
+            $retorno[] = $Cronograma; //Agrego los objetos al arreglo auxiliar
+        }
+        return $retorno; //Devuelvo el arreglo
+    }
 }
 ?>

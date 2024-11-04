@@ -64,7 +64,34 @@ class EntrenadorRepo{
     }
 
     public function puntuar($nro,$cump,$resAn,$fuerza,$resMus,$flex,$resMon,$resi,$cumpE,$resAnE,$fuerzaE,$resMusE,$flexE,$resMonE,$resiE){
-        $retorno=$this->conexion->multi_query("INSERT INTO califica VALUES ($nro,1,$cump,$cumpE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,2,$resAn,$resAnE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,3,$fuerza,$fuerzaE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,4,$resMus,$resMusE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,5,$flex,$flexE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,6,$resMon,$resMonE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,7,$resi,$resiE,CURRENT_DATE);");
+        $total=($cump+$resAn+$fuerza+$resMus+$flex+$resMon+$resi);
+        $totalE=($cumpE+$resAnE+$fuerzaE+$resMusE+$flexE+$resMonE+$resiE);
+        $estadoActual=$this->conexion->query("SELECT ID_Estado FROM cambia_estado WHERE ISNULL(Fecha_Fin) AND Numero_Socio=$nro;")->fetch_array();
+        switch($total){
+            case ($total<560):
+                $estado=1;
+                break;
+            case ($total>=560&&$total<700):
+                $estado=2;
+                break;
+            case ($total>=700&&$total<840):
+                $estado=3;
+                break;
+            case ($total>=840&&$total<980):
+                $estado=4;
+                break;
+            case ($total>=980):
+                $estado=5;
+                break;
+        }
+        if ($estadoActual!=NULL){
+            if($estadoActual[0]!=$estado){
+                $retorno=$this->conexion->multi_query("INSERT INTO califica VALUES ($nro,1,$cump,$cumpE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,2,$resAn,$resAnE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,3,$fuerza,$fuerzaE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,4,$resMus,$resMusE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,5,$flex,$flexE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,6,$resMon,$resMonE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,7,$resi,$resiE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,8,$total,$totalE,CURRENT_DATE); UPDATE cambia_estado SET Fecha_fin=CURRENT_DATE WHERE ISNULL(Fecha_Fin) AND Numero_Socio=$nro; INSERT INTO cambia_estado VALUES ($nro,$estado,CURRENT_DATE,NULL);");
+                $this->conexion->close();
+                return $retorno;
+            }
+        }
+        $retorno=$this->conexion->multi_query("INSERT INTO califica VALUES ($nro,1,$cump,$cumpE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,2,$resAn,$resAnE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,3,$fuerza,$fuerzaE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,4,$resMus,$resMusE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,5,$flex,$flexE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,6,$resMon,$resMonE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,7,$resi,$resiE,CURRENT_DATE); INSERT INTO califica VALUES ($nro,8,$total,$totalE,CURRENT_DATE); INSERT INTO cambia_estado VALUES ($nro,$estado,CURRENT_DATE,NULL);");
         $this->conexion->close();
         return $retorno;
     }
