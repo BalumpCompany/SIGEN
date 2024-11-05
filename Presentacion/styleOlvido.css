@@ -99,23 +99,31 @@ a{
  @media (max-width: 780px ) {
 
     #logo {
-        width: 40%;
+        width: 1000%;
         display: flex;
         margin: 0 auto;
     }
+     
+     a{
+    text-decoration: none;
+    color: #f9e8b2;
+    margin-right: 2vw;
+    font-size: 4vw;
+}
 
     main {
         display: flex;
-        width: 80%;
-        margin: 0 auto;
-        height: 40vh;
+        justify-content: center;
+        width: 100%;
+     
+        height: 100%;
     }
     #cuadroContacto{
-        position: unset;
-        margin: 0;
-        width: 100%;
-        height: 80%;
-        padding: 10%;
+        margin-top: 40vw;
+        margin-right: 40vw; 
+        width: 70%;
+        height: 15%;
+        padding: 0%;
     }
 
      /* Footer*/ 
