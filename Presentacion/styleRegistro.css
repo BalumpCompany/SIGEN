@@ -175,7 +175,7 @@ a{
     width: 80%;
     height: 135%;
     padding: 10%;
-
+border-radius: 10px;
  
   }
 
@@ -189,11 +189,10 @@ a{
 
 label {
     font-size: 3vw;
-    margin: 0;
+    margin: 2vw;
 }
 
 input {
-    margin: 2vh 0 0 0;
     font-size: 3vw;
     height: 2vh;
     width: 80%;
@@ -202,7 +201,8 @@ input {
 #registrarse{
     display: flex;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
+    margin-top:2vw; 
     font-size: 3vw;
     height: auto;
     justify-content: center;
