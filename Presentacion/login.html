@@ -14,20 +14,35 @@
     <header>
         <a href="index.php"><img src="recursos/logo_registro.jpg" alt="logo" id="logo"></a>
     </header>
-    <form action="../Negocio/login.php" method="post" id="cuadroLogin" onsubmit="return verificarDatos()">
-        <label for="user" id="labelUser">Ingresa tu Nombre de Usuario:</label>
-	<input type="text" name="user" id="user" tabindex="1" required><br>
-
-        <div id="contrasena"><label for="pass">Ingresa tu Contraseña:</label><a tabindex="4" href="olvidoContrasena.html"
-                id="olvidaste">Olvidaste tu contraseña?</a></div><input type="password" name="pass" id="pass" tabindex="2" minlength="8" required><br>
-        <button id="login" tabindex="3">Iniciar Sesión</button><br><br>
-        <a href="registro.html" id="registrarse">Registrarse</a>
-    </form>
+    <main>
+        <form action="../Negocio/login.php" method="post" id="cuadroLogin" onsubmit="return verificarDatos()">
+            <div class="item">
+                <label for="user" id="labelUser">Ingresa tu Nombre de Usuario:</label>
+                <input type="text" name="user" id="user" tabindex="1" required>
+            </div>
+            <br>
+            <div class="item">
+                <div id="contrasena">
+                    <label for="pass">Ingresa tu Contraseña:</label>
+                    <a tabindex="4" href="olvidoContrasena.html" id="olvidaste">Olvidaste tu contraseña?</a>
+                </div>
+                <input type="password" name="pass" id="pass" tabindex="2" minlength="8" required>
+            </div>
+            <br>
+            <button id="login" tabindex="3">Iniciar Sesión</button><br class="br"><br class="br">
+            <a href="registro.html" id="registrarse">Registrarse</a>
+        </form>
+    </main>
+   
     <footer>
-        <img src="recursos/balump.jpg" alt="balump" id="balump">
-        <a href="">Compañía</a>
-        <a href="">Soporte</a>
-        <a href="">Plataforma</a>
+        <div class="logo-footer">
+            <img src="recursos/balump.jpg" alt="balump" id="balump">
+        </div>
+        <div class="enlaces">
+            <a class="enlace-footer" href="">Compañía</a>
+            <a class="enlace-footer" href="">Soporte</a>
+            <a class="enlace-footer" href="">Plataforma</a>
+        </div>
     </footer>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="login.js"></script>

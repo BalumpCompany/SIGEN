@@ -43,6 +43,17 @@ header{
     font-family: Inter;
     font-weight: bolder;
 }
+.iniciarSesion_celular{
+    background-color: #242424;
+    border-radius: 10px;
+    border-style: none;
+    color:#f9e8b2;
+    width: 30vw;
+    height: 5vh;
+    font-family: Inter;
+    font-weight: bolder;
+    font-size: 3vw;
+}
 
 #cuadroRegistro{
     position: absolute;
@@ -119,3 +130,93 @@ a{
     margin-left: 2.5vw;
     margin-right: 75vw;
 }
+
+/* Responsive */
+    
+@media (min-width: 1080px) {
+    .iniciarSesion_phone{
+        display: none;
+    }
+} 
+
+@media (max-width: 780px) {
+
+    /* Logo */
+
+    .iniciarSesion_phone{
+        display: flex;
+        margin: 0 auto;
+        width: 60%;
+        justify-content: center;
+    }
+
+    #iniciarSesion{
+        display: none;
+    }
+
+    #logo {
+        width: 40%;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+        height: 40vh;
+    }
+
+    /* Form */
+  #cuadroRegistro{
+    position: unset;
+    margin: 0 auto 5% auto;
+    width: 80%;
+    height: 135%;
+    padding: 10%;
+
+ 
+  }
+
+  .item {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
+label {
+    font-size: 3vw;
+    margin: 0;
+}
+
+input {
+    margin: 2vh 0 0 0;
+    font-size: 3vw;
+    height: 2vh;
+    width: 80%;
+}
+
+#registrarse{
+    display: flex;
+    margin: 0 auto;
+    width: 60%;
+    font-size: 3vw;
+    height: auto;
+    justify-content: center;
+}
+
+
+
+
+
+  /* Footer */
+   footer {
+    display: none;
+} 
+
+
+}  
+

@@ -30,6 +30,11 @@
 <body>
     <nav>
         <a href="index.php"><img src="recursos/heracles_logo.jpg" alt="Logo Heracles" id="logo"></a>
+        <a href="index.php"><img src="recursos/logo_registro.jpg" alt="Logo Heracles" id="logo_phone"></a>
+
+        <a href="login.html"><button class="iniciarSesion_celular">Iniciar Sesión</button></a>
+
+        
         <div id="final">
             <ul id="opcionesNav">
                 <li id="nav1"><a href="#unete">INICIO</a></li>
@@ -38,7 +43,7 @@
             </ul>
             <?php
             session_start();
-         if(session_status()==2 && $_SESSION["logueado"]==true){
+         if(session_status()==2 && isset($_SESSION["logueado"]) && $_SESSION["logueado"]==true){
             ?><form action="ventana<?php echo $_SESSION["rol"]; ?>.php" method="get">
             <input type="hidden" name="user" value="<?php echo $_SESSION["user"]; ?>">
             <button id='login'>IR A LA VENTANA</button></form><?php

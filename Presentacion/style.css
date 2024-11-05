@@ -38,6 +38,11 @@ nav {
     width: auto;
     margin-left: 2vw;
 }
+#logo_phone{
+    height: 8vh;
+    width: auto;
+    margin-left: 2vw;
+}
 
 #final {
     width: 86vw;
@@ -80,10 +85,22 @@ button {
     cursor: pointer;
 }
 
+
 #registro {
     background-color: #f9e8b2;
     border-style: none;
     cursor: pointer;
+}
+.iniciarSesion_celular{
+    background-color: #242424;
+    border-radius: 10px;
+    border-style: none;
+    color:#f9e8b2;
+    width: 25vw;
+    height: 3vh;
+    font-family: Inter;
+    font-weight: bolder;
+    font-size: 2vw;
 }
 
 a {
@@ -339,4 +356,62 @@ footer{
     font-family: Inter;
     color: white;
 
+}
+
+
+
+/*RESPONSIVE*/
+@media (min-width: 780px) {
+    #logo_phone{
+        display: none;
+    }
+    .iniciarSesion_celular{
+        display: none;
+    }
+} 
+
+@media (max-width: 780px) {
+    #aboutus{
+        background-image: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        height: 25vh;
+    }
+    #aboutTitulo{
+        font-size: 3vw;
+    }
+    #aboutContenido{
+        font-size: 2.2vw;
+        text-align: center;
+    }
+    .title{
+        display: none;
+    }
+    .preguntas h1, .respuestas p{
+        font-size: 0.8rem;
+    }
+
+    #questions{
+        height: 50vh;
+        min-height: 25vh;
+        padding: 10vh 0 0 10%;
+        width: 100%;
+    }
+    svg{
+        display: none;
+    }
+    #logo{
+        display: none;
+    }
+    #opcionesNav{
+        display: none;
+    }
+    #login,#registro{
+        display: none;
+    } 
+    nav{
+        display: flex;
+        flex-direction: row-reverse;
+    }   
 }
