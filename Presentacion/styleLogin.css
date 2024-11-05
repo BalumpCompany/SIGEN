@@ -62,7 +62,6 @@ label{
     font-size: 0.8vw;
     color: white;
     margin-left: 2vw;
-    margin-top: 0.5vw;
     width: 20.2vw;
     height: 1.8vw;
     background-color: #49a842;
@@ -110,3 +109,96 @@ a{
     margin-left: 2.5vw;
     margin-right: 75vw;
 }
+
+/* Responsive */
+@media (max-width: 780px) {
+    /* Logo */
+    #logo {
+        width: 40%;
+        display: flex;
+        margin: 0 auto;
+    }
+    /* Form */
+    main {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+        height: 40vh;
+    }
+    #cuadroLogin {
+        position: unset;
+        margin: 0;
+        width: 70%;
+        height: 65%;
+        padding: 5%;
+        border-radius:10px;
+    }
+    .item {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+    }
+    label {
+        font-size: 3vw;
+        margin: 0;
+    }
+    input {
+        margin: 2vh 0 0 0;
+        font-size: 3vw;
+        height: 2vh;
+        width: 80%;
+    }
+    #contrasena {
+        display: flex;
+        flex-direction: column;
+    }
+    #login {
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        font-size: 3vw;
+        height: auto;
+        justify-content: center;
+    }
+    #registrarse {
+        display: flex;
+        margin: 2vh auto 0 auto;
+        justify-content: center;
+        font-size: 2.4vw;
+        width: auto;
+    }
+    #olvidaste {
+        font-size: 2.4vw;
+        width: auto;
+        margin: 1vh 0 0 0;
+    }
+    .br{
+        display: none;
+    }
+    /* Footer */
+    footer {
+        margin-top: 70vw;
+        margin-left:6vw;
+        display: flex;
+        width: 80%;
+    }
+    .enlace-footer {
+        font-size: 2.4vw;
+    }
+    .logo-footer {
+        flex: 1;
+        display: flex; 
+    }
+    #balump {
+        margin: 0 0 0 3vw;
+        width: 50%;
+    }
+    .enlaces {
+        flex: 2;
+        display: flex;
+        justify-content: flex-end;
+    }
+}  
