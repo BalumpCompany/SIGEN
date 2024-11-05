@@ -1,0 +1,18 @@
+use heracles_bd;
+INSERT INTO Ejercicios VALUES (NULL,'Press plano','Entrena pecho','Pecho/press_plano.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Press inclinado','Entrena pecho','Pecho/press_inclinado.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Apertura plana','Entrena pecho','Pecho/aperturas_planos.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Apertura inclinada','Entrena pecho','Pecho/aperturas_inclinado.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Jalon al pecho','Entrena espalda','Espalda/jalon_polea.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Remo bajo en polea','Entrena espalda','Espalda/remo_maquina.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Press hombro','Entrena hombro','Hombros/press_hombro.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Elevaciones frontales','Entrena hombro','Hombros/elevacion_frontal.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Elevaciones laterales','Entrena hombro','Hombros/elevaciones_laterales.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Curl de biceps','Entrena biceps','Bicep/curl_bicep.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Curl de biceps martillo','Entrena biceps','Bicep/curl_martillo.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Triceps en polea','Entrena triceps','Triceps/tricep_polea.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Press francés','Entrena triceps','Triceps/press_frances.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Sentadilas','Entrena piernas','Piernas/sentadilla.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Extension de cuadriceps','Entrena piernas','Piernas/extension.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Flexión de femorales','Entrena piernas','Piernas/curl_de_pierna.webp');
+INSERT INTO Ejercicios VALUES (NULL,'Gemelos de pie','Entrena piernas','Piernas/gemelos.webp');

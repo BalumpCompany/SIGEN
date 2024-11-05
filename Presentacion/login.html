@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="icon" href="recursos/icono.png">
+
+</head>
+
+<body>
+    <header>
+        <a href="index.php"><img src="recursos/logo_registro.jpg" alt="logo" id="logo"></a>
+    </header>
+    <main>
+        <form action="../Negocio/login.php" method="post" id="cuadroLogin" onsubmit="return verificarDatos()">
+            <div class="item">
+                <label for="user" id="labelUser">Ingresa tu Nombre de Usuario:</label>
+                <input type="text" name="user" id="user" tabindex="1" required>
+            </div>
+            <br>
+            <div class="item">
+                <div id="contrasena">
+                    <label for="pass">Ingresa tu Contraseña:</label>
+                    <a tabindex="4" href="olvidoContrasena.html" id="olvidaste">Olvidaste tu contraseña?</a>
+                </div>
+                <input type="password" name="pass" id="pass" tabindex="2" minlength="8" required>
+            </div>
+            <br>
+            <button id="login" tabindex="3">Iniciar Sesión</button><br class="br"><br class="br">
+            <a href="registro.html" id="registrarse">Registrarse</a>
+        </form>
+    </main>
+   
+    <footer>
+        <div class="logo-footer">
+            <img src="recursos/balump.jpg" alt="balump" id="balump">
+        </div>
+        <div class="enlaces">
+            <a class="enlace-footer" href="">Compañía</a>
+            <a class="enlace-footer" href="">Soporte</a>
+            <a class="enlace-footer" href="">Plataforma</a>
+        </div>
+    </footer>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>
